@@ -1,0 +1,37 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2"
+  ],
+  "type": [
+    "VerifiableCredential"
+  ],
+  "id": "https://www.credential.net/f4e2330a-2d61-4bd3-bdc2-36aad246fd7b",
+  "name": "Databricks Certified Data Engineer Associate",
+  "description": "The Databricks Certified Data Engineer Associate certification exam assesses an individual’s ability to use the Databricks Lakehouse Platform to complete introductory data engineering tasks. This includes an understanding of the Lakehouse Platform and its workspace, its architecture, and its capabilities. It also assesses the ability to perform multi-hop architecture ETL tasks using Apache Spark™ SQL and Python in both batch and incrementally processed paradigms. Finally, the exam assesses the tester’s ability to put basic ETL pipelines and Databricks SQL queries and dashboards into production while maintaining entity permissions. Individuals who pass this certification exam can be expected to complete basic data engineering tasks using Databricks and its associated tools.EARNING CRITERIACandidates must pass the Databricks Certified Data Engineer Associate certification exam.",
+  "image": "https://pdf.ms.credential.net/badge/image?env=production&credential=59ntixjw",
+  "issuer": {
+    "id": "https://api.accredible.com/v1/verifiable_credential/organizations/45847",
+    "name": "Databricks Academy"
+  },
+  "validFrom": "2025-09-22T00:00:00Z",
+  "validUntil": "2027-09-22T00:00:00Z",
+  "credentialSubject": {
+    "name": "Prathamesh Shelke",
+    "identifier": {
+      "type": "IdentityObject",
+      "hashed": true,
+      "identityHash": "sha256$d13ed51dcc5fbe61a6208ab31e588155fa3133e1a41f09465e2cf91dea345740",
+      "identityType": "email",
+      "salt": "5b1cbb0a8b34a31a9ebd4eacfbe78b9a"
+    }
+  },
+  "completionDate": "2025-09-22",
+  "proof": {
+    "type": "DataIntegrityProof",
+    "cryptosuite": "eddsa-rdfc-2022",
+    "created": "2026-02-10T09:52:51Z",
+    "verificationMethod": "did:web:api.accredible.com:v1:verifiable_credential:organizations:45847#62ae4c8c-dc10-11f0-9914-af0fa82e7cf8",
+    "proofPurpose": "assertionMethod",
+    "proofValue": "z3CY5NFLcWKcLbPyMsq8vHpF81nMFsx7bezvbgDCuGHirPnCnVnLoJ4a4PWvbDgouZZpcrjbWZYfsVMV47TLrqjvg"
+  }
+}

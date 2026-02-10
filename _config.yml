@@ -1,0 +1,21 @@
+# GitHub Pages Configuration
+
+# Theme (not used with custom HTML, but good to have)
+theme: jekyll-theme-minimal
+
+# Site settings
+title: Prathamesh Shelke - Portfolio
+description: Business Analyst with 6+ years of experience in Telecom domain, specializing in Data Engineering, SQL, SaprkSQL, Azure Databricks, and Snowflake
+baseurl: ""
+url: ""
+
+# Build settings
+markdown: kramdown
+
+# Exclude from processing
+exclude:
+  - README.md
+  - DEPLOYMENT.md
+  - CUSTOMIZATION.md
+  - QUICKSTART.md
+  - .gitignore
