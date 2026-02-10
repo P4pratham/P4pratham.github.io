@@ -291,6 +291,7 @@ body {
 /* Profile Picture Section */
 .hero-image {
     position: relative;
+    z-index: 1;
 }
 
 .profile-picture-container {
@@ -300,6 +301,7 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
+    z-index: 1;
 }
 
 .profile-picture-wrapper {
@@ -309,6 +311,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1;
 }
 
 .profile-picture {
@@ -418,6 +421,8 @@ body {
 /* Section Styles */
 section {
     padding: 100px 20px;
+    position: relative;
+    z-index: 10;
 }
 
 .section-title {
@@ -438,6 +443,8 @@ section {
 /* About Section */
 .about {
     background: linear-gradient(180deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+    position: relative;
+    z-index: 10;
 }
 
 .about-content {
