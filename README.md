@@ -4,7 +4,7 @@ A modern, dynamic portfolio website showcasing my experience as a Business Analy
 
 ## 🚀 Live Website
 
-Visit: [Your GitHub Pages URL will be here]
+Visit: https://p4pratham.github.io/
 
 ## 👨‍💼 About
 
