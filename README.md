@@ -4,7 +4,7 @@ A modern, dynamic portfolio website showcasing my experience as a Business Analy
 
 ## 🚀 Live Website
 
-Visit: [Your GitHub Pages URL will be here]
+Visit: https://p4pratham.github.io/
 
 ## 👨‍💼 About
 
@@ -151,12 +151,6 @@ Then visit `http://localhost:8000`
 ## 📝 License
 
 This project is open source and available for personal use.
-
-## 📧 Contact
-
-- **Email**: prathash@amdocs.com
-- **LinkedIn**: [Your LinkedIn Profile]
-- **GitHub**: [Your GitHub Profile]
 
 ---
 
