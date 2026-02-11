@@ -15,6 +15,22 @@ if (hamburger) {
     });
 }
 
+// Logo click - scroll to top
+const logo = document.querySelector('.logo');
+if (logo) {
+    logo.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+        // Close mobile menu if open
+        if (navMenu) {
+            navMenu.classList.remove('active');
+        }
+    });
+}
+
 // Typing Effect
 const typedTextSpan = document.querySelector('.typed-text');
 const cursorSpan = document.querySelector('.cursor');
