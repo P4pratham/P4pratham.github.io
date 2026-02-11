@@ -152,12 +152,6 @@ Then visit `http://localhost:8000`
 
 This project is open source and available for personal use.
 
-## 📧 Contact
-
-- **Email**: prathash@amdocs.com
-- **LinkedIn**: [Your LinkedIn Profile]
-- **GitHub**: [Your GitHub Profile]
-
 ---
 
 **Built with ❤️ by Prathamesh Shelke**
