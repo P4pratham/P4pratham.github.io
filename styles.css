@@ -970,10 +970,19 @@ section {
 
 .experience-company {
     color: var(--gray-text);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.experience-project {
+    color: var(--primary-color);
     margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
     gap: 8px;
+    font-size: 0.95rem;
 }
 
 .experience-achievements {
@@ -1060,6 +1069,96 @@ section {
 
 .achievement-card p {
     color: var(--gray-text);
+}
+
+/* Education Section */
+.education {
+    background: linear-gradient(180deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.education-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    display: flex;
+    gap: 1.5rem;
+    align-items: start;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+}
+
+.education-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    min-width: 60px;
+    text-align: center;
+}
+
+.education-content {
+    flex: 1;
+}
+
+.education-content h3 {
+    color: var(--light-text);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.education-institute {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+.education-location {
+    color: var(--gray-text);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+.education-details {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.education-year,
+.education-grade {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--gray-text);
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    background: rgba(0, 212, 255, 0.05);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 212, 255, 0.1);
+}
+
+.education-year i,
+.education-grade i {
+    color: var(--primary-color);
 }
 
 /* Projects Section */
@@ -1394,6 +1493,10 @@ section {
     }
 
     .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .education-grid {
         grid-template-columns: 1fr;
     }
 }
