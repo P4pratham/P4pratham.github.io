@@ -85,12 +85,12 @@ body {
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 1rem 20px;
+    gap: 1.5rem;
 }
 
 .logo {
@@ -103,6 +103,8 @@ body {
     text-decoration: none;
     transition: opacity 0.3s;
     cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .logo:hover {
@@ -112,7 +114,8 @@ body {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 1.2rem;
+    margin-left: auto;
 }
 
 .nav-link {
@@ -1422,6 +1425,10 @@ section {
         display: flex;
     }
 
+    .nav-container {
+        gap: 0.8rem;
+    }
+
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -1433,10 +1440,16 @@ section {
         transition: 0.3s;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
         padding: 2rem 0;
+        margin-left: 0;
     }
 
     .nav-menu.active {
         left: 0;
+    }
+
+    .dimension-toggle {
+        margin-left: auto;
+        margin-right: 0.5rem;
     }
 
     .hero-content {
@@ -1568,4 +1581,145 @@ section {
 
 .fade-in {
     animation: fadeInUp 0.6s ease-out;
+}
+
+/* Dimension Toggle Switch */
+.dimension-toggle {
+    text-decoration: none;
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.toggle-track {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: rgba(255, 255, 255, 0.06);
+    border: 2px solid rgba(233, 30, 99, 0.4);
+    border-radius: 30px;
+    padding: 4px 6px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.toggle-track:hover {
+    border-color: #e91e63;
+    box-shadow: 0 0 18px rgba(233, 30, 99, 0.35), 0 0 40px rgba(170, 0, 255, 0.15);
+    transform: scale(1.05);
+}
+
+.toggle-label-left,
+.toggle-label-right {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 0 8px;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.toggle-label-left {
+    color: var(--primary-color, #00c6ff);
+}
+
+.toggle-label-right {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.toggle-track:hover .toggle-label-right {
+    color: #e91e63;
+    text-shadow: 0 0 8px rgba(233, 30, 99, 0.5);
+}
+
+.toggle-knob {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: 2px solid rgba(233, 30, 99, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e91e63;
+    font-size: 0.8rem;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+}
+
+.toggle-track:hover .toggle-knob {
+    background: linear-gradient(135deg, #e91e63, #aa00ff);
+    color: #fff;
+    border-color: #fff;
+    transform: translateX(2px) rotate(180deg);
+    box-shadow: 0 0 12px rgba(233, 30, 99, 0.6);
+}
+
+/* Spider-Verse active state (used on the spider-verse page) */
+.dimension-toggle.sv-active .toggle-label-left {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.dimension-toggle.sv-active .toggle-label-right {
+    color: #e91e63;
+    text-shadow: 0 0 8px rgba(233, 30, 99, 0.5);
+}
+
+.dimension-toggle.sv-active .toggle-knob {
+    background: linear-gradient(135deg, #e91e63, #aa00ff);
+    color: #fff;
+    border-color: #e91e63;
+    box-shadow: 0 0 12px rgba(233, 30, 99, 0.4);
+}
+
+.dimension-toggle.sv-active .toggle-track:hover .toggle-knob {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: #00c6ff;
+    border-color: #00c6ff;
+    transform: translateX(-2px) rotate(-180deg);
+    box-shadow: 0 0 12px rgba(0, 198, 255, 0.6);
+}
+
+.dimension-toggle.sv-active .toggle-track:hover .toggle-label-left {
+    color: #00c6ff;
+    text-shadow: 0 0 8px rgba(0, 198, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+    .dimension-toggle {
+        margin-left: auto;
+        margin-right: 0.5rem;
+    }
+    .toggle-label-left,
+    .toggle-label-right {
+        font-size: 0.55rem;
+        padding: 0 4px;
+    }
+    .toggle-knob {
+        width: 24px;
+        height: 24px;
+        font-size: 0.65rem;
+    }
+    .toggle-track {
+        padding: 3px 4px;
+    }
+    .logo {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .toggle-label-left,
+    .toggle-label-right {
+        display: none;
+    }
+    .toggle-track {
+        padding: 3px;
+    }
+    .logo {
+        font-size: 1.1rem;
+        gap: 6px;
+    }
 }
