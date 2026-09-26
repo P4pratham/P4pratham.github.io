@@ -1,6 +1,16 @@
 {
   "blogs": [
     {
+      "id": "databricks-sdp-lakeflow-pipelines",
+      "title": "If you are writing Lakeflow Pipelines in Databricks, it’s time to update your imports.",
+      "date": "2026-09-26",
+      "readTime": "4 min read",
+      "coverImage": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+      "summary": "Databricks is phasing out legacy @dlt decorators in favor of Apache Spark Declarative Pipelines (SDP) using pyspark.pipelines (dp). Here is why the shift matters.",
+      "tags": ["Databricks", "PySpark", "Lakeflow", "Delta Lake"],
+      "content": "<p class=\"blog-lead\">Databricks is phasing out the legacy <code>@dlt</code> decorators and <code>dlt</code> module in favor of <strong>Apache Spark Declarative Pipelines (SDP)</strong>, using <code>pyspark.pipelines</code> (conventionally imported as <code>dp</code>).</p>\n<h3>🔄 The Evolution from @dlt to dp</h3>\n<p><strong>The Old Pattern:</strong> Using <code>import dlt</code> tied pipeline logic tightly to proprietary Delta Live Tables syntax and runtime constructs.</p>\n<p><strong>The New Standard:</strong> Using <code>import pyspark.pipelines as dp</code> standardizes declarative data engineering directly within the broader Apache Spark and Lakeflow ecosystem.</p>\n<h3>⚡ What Changes in Your Code?</h3>\n<p>The shift is straightforward and keeps the declarative style you're used to:</p>\n<ul>\n  <li><code>import dlt</code> &rarr; <code>import pyspark.pipelines as dp</code></li>\n  <li><code>@dlt.table</code> &rarr; <code>@dp.table</code></li>\n  <li><code>@dlt.view</code> &rarr; <code>@dp.view</code></li>\n  <li><code>dlt.read()</code> / <code>dlt.read_stream()</code> &rarr; <code>dp.read()</code> / <code>dp.read_stream()</code></li>\n</ul>\n<p>Expectations syntax now standardizes under the new <code>dp</code> module decorators (like <code>@dp.expect</code>, <code>@dp.expect_or_drop</code>, and <code>@dp.expect_or_fail</code>).</p>\n<h3>💡 Why This Matters</h3>\n<ul>\n  <li><strong>Closer Alignment with Open Standards:</strong> Standardizing declarative pipelines under <code>pyspark</code> bridges the gap between proprietary platform code and open-source Spark paradigms.</li>\n  <li><strong>Core to Lakeflow:</strong> Powers next-gen Lakeflow Pipelines with clean lifecycle management, automated orchestration, and built-in Unity Catalog governance.</li>\n  <li><strong>Seamless Transition:</strong> It’s a clean 1:1 conceptual mapping, making modernization of existing DLT notebooks fast and painless.</li>\n</ul>\n<p>📚 <strong>Reference doc:</strong> <a href=\"https://lnkd.in/gxNMMs8v\" target=\"_blank\" style=\"color: var(--accent-cyan); text-decoration: underline;\">Databricks Documentation</a></p>"
+    },
+    {
       "id": "azure-databricks-cost-optimization",
       "title": "Optimizing Azure Databricks Cluster Costs in Telecom Delta Lake",
       "date": "2026-09-25",
