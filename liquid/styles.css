@@ -878,11 +878,11 @@ button {
    -------------------------------------------------------------------------- */
 .cert-glass-container {
     padding: 44px;
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 48px;
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    max-width: 100%;
+    gap: 44px;
+    width: 100%;
 }
 
 .spotlight-card {
@@ -897,16 +897,14 @@ button {
     align-items: center;
     text-align: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: var(--radius-lg);
-    padding: 24px 20px;
+    flex-shrink: 0;
+    width: 220px;
 }
 
 .cert-badge-wrapper {
     position: relative;
-    width: 180px;
-    height: 180px;
+    width: 170px;
+    height: 170px;
     margin-bottom: 16px;
     display: flex;
     align-items: center;
@@ -917,7 +915,7 @@ button {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.6));
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -927,12 +925,13 @@ button {
 
 .cert-validity-box {
     padding: 8px 16px;
-    background: rgba(251, 191, 36, 0.1);
-    border: 1px solid rgba(251, 191, 36, 0.3);
+    background: rgba(251, 191, 36, 0.12);
+    border: 1px solid rgba(251, 191, 36, 0.35);
     border-radius: var(--radius-pill);
     font-size: 0.82rem;
     font-weight: 600;
     color: var(--accent-gold);
+    white-space: nowrap;
 }
 
 .cert-right-content {
@@ -940,6 +939,8 @@ button {
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
+    flex: 1;
+    min-width: 0;
 }
 
 .cert-status-tag {
@@ -1604,13 +1605,19 @@ button {
         grid-template-columns: 1fr;
     }
     .cert-glass-container {
-        grid-template-columns: 1fr;
-        padding: 36px 28px;
-        gap: 32px;
+        flex-direction: column;
+        text-align: center;
+        padding: 36px 24px;
+        gap: 28px;
+        align-items: center;
+    }
+    .cert-left-content {
+        width: 100%;
     }
     .cert-right-content {
         align-items: center;
         text-align: center;
+        width: 100%;
     }
     .cert-skills-grid {
         justify-content: center;
@@ -1622,7 +1629,7 @@ button {
     }
     .cert-verify-btn {
         width: 100%;
-        max-width: 360px;
+        max-width: 340px;
     }
     .hero-title {
         font-size: 2.8rem;
