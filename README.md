@@ -3,7 +3,7 @@
 > [!NOTE]
 > 🚀 **Vibe Coded Notice**: This entire website was **Vibe Coded** with the assistance of **Antigravity AI** (Google DeepMind) and **Cursor AI**.
 
-Welcome to the multi-dimensional portfolio repository for **Prathamesh Shelke**, Senior Data Engineer with **6+ Years of Experience** architecting enterprise data pipelines, Azure Databricks Lakehouses, PySpark workloads, and Snowflake cloud data warehouses.
+Welcome to the multi-dimensional portfolio repository for **Prathamesh Shelke**, Senior Data Engineer with **7+ Years of Experience** architecting enterprise data pipelines, Azure Databricks Lakehouses, PySpark workloads, and Snowflake cloud data warehouses.
 
 ---
 
@@ -17,7 +17,7 @@ Welcome to the multi-dimensional portfolio repository for **Prathamesh Shelke**,
 
 ## 🚀 Key Highlights & Expertise
 
-- **6+ Years of Data Engineering Experience**: Specializing in high-throughput telecom ETL/ELT data pipelines, Medallion Architecture (Bronze &rarr; Silver &rarr; Gold), and large-scale cloud transformations (Three UK, Amdocs).
+- **7+ Years of Data Engineering Experience**: Specializing in high-throughput telecom ETL/ELT data pipelines, Medallion Architecture (Bronze &rarr; Silver &rarr; Gold), and large-scale cloud transformations (Three UK, Amdocs).
 - **Core Technology Stack**:
   - **Big Data & Compute**: PySpark, Apache Spark Declarative Pipelines (SDP), SparkSQL, Delta Lake, Delta Live Tables (DLT).
   - **Cloud Platforms**: Azure Databricks, Azure Data Factory (ADF), Azure Blob Storage / ADLS Gen2, Snowflake DWH.
