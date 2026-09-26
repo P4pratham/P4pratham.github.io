@@ -18,7 +18,7 @@
     {
       "id": "databricks-cdc-deep-dive",
       "title": "Demystifying CDC Patterns in Azure Databricks",
-      "date": "2026-09-25",
+      "date": "2026-09-27",
       "readTime": "2 min read",
       "coverImage": "images/1789031841499.jpeg",
       "summary": "Databricks Lakeflow Connect makes operational data ingestion native, serverless, and Unity Catalog–governed.",
@@ -26,7 +26,6 @@
         "Databricks",
         "Delta Lake",
         "Lakeflow Connect",
-        ,
         "Auto CDC Flow"
       ],
       "contentFile": "content/databricks-cdc-deep-dive.txt"
