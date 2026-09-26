@@ -137,35 +137,79 @@ const revealOnScroll = () => {
 window.addEventListener('scroll', revealOnScroll);
 revealOnScroll();
 
-// ---- COUNTER ANIMATION ----
-const counters = document.querySelectorAll('.stat-num');
+// ---- CONFIG-DRIVEN COUNTER ANIMATION ----
 let counterStarted = false;
 
-const startCounters = () => {
-    if (counterStarted) return;
-    const heroSection = document.getElementById('home');
-    const rect = heroSection.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-        counterStarted = true;
-        counters.forEach(counter => {
-            const target = +counter.dataset.target;
-            const duration = 2000;
-            const step = target / (duration / 16);
-            let current = 0;
-            const update = () => {
-                current += step;
-                if (current < target) {
-                    counter.textContent = Math.ceil(current);
-                    requestAnimationFrame(update);
-                } else {
-                    counter.textContent = target + '+';
-                }
-            };
-            update();
-        });
+const startCounters = async () => {
+    const heroStatsContainer = document.getElementById('heroStats');
+    if (!heroStatsContainer) return;
+
+    const defaultConfig = [
+        { id: "experience", target: 7, prefix: "", suffix: "+", label: "YEARS XP" },
+        { id: "data_processed", target: 100, prefix: "", suffix: " TB+", label: "TB+ DATA" },
+        { id: "etl_pipelines", target: 50, prefix: "", suffix: "+", label: "PROJECTS" }
+    ];
+
+    let statsList = defaultConfig;
+
+    try {
+        const response = await fetch('../liquid/config.json');
+        if (response.ok) {
+            const configData = await response.json();
+            if (configData && Array.isArray(configData.stats)) {
+                statsList = configData.stats;
+            }
+        }
+    } catch (err) {
+        console.warn('Spider-Verse using fallback stats config:', err);
     }
+
+    // Render stats dynamically from config JSON
+    heroStatsContainer.innerHTML = statsList.map(stat => `
+        <div class="stat-box">
+            <span class="stat-num" 
+                  data-target="${stat.target}" 
+                  data-prefix="${stat.prefix || ''}" 
+                  data-suffix="${stat.suffix || ''}">0</span>
+            <span class="stat-label">${stat.label.toUpperCase()}</span>
+        </div>
+    `).join('');
+
+    const counters = heroStatsContainer.querySelectorAll('.stat-num');
+
+    const runCounterAnimation = () => {
+        if (counterStarted) return;
+        const heroSection = document.getElementById('home');
+        if (!heroSection) return;
+        const rect = heroSection.getBoundingClientRect();
+
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            counterStarted = true;
+            counters.forEach(counter => {
+                const target = +counter.dataset.target;
+                const prefix = counter.dataset.prefix || '';
+                const suffix = counter.dataset.suffix || '';
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+                const update = () => {
+                    current += step;
+                    if (current < target) {
+                        counter.textContent = `${prefix}${Math.ceil(current)}${suffix}`;
+                        requestAnimationFrame(update);
+                    } else {
+                        counter.textContent = `${prefix}${target}${suffix}`;
+                    }
+                };
+                update();
+            });
+        }
+    };
+
+    window.addEventListener('scroll', runCounterAnimation);
+    runCounterAnimation();
 };
-window.addEventListener('scroll', startCounters);
+
 startCounters();
 
 // ---- SKILL BARS ----
