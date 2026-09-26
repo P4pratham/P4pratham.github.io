@@ -4,7 +4,7 @@
       "id": "databricks-sdp-lakeflow-pipelines",
       "title": "If you are writing Lakeflow Pipelines in Databricks, it’s time to update your imports.",
       "date": "2026-09-26",
-      "readTime": "5 min read",
+      "readTime": "3 min read",
       "coverImage": "images/1789033448015.jpeg",
       "summary": "Databricks is phasing out legacy @dlt decorators in favor of Apache Spark Declarative Pipelines (SDP) using pyspark.pipelines (dp). Here is what the shift looks like and why it matters.",
       "tags": [
@@ -16,19 +16,20 @@
       "contentFile": "content/databricks-sdp-lakeflow.txt"
     },
     {
-      "id": "azure-databricks-cost-optimization",
-      "title": "Optimizing Azure Databricks Cluster Costs in Telecom Delta Lake",
+      "id": "databricks-cdc-deep-dive",
+      "title": "Demystifying CDC Patterns in Azure Databricks",
       "date": "2026-09-25",
-      "readTime": "5 min read",
-      "coverImage": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
-      "summary": "Key strategies for auto-scaling, spot instances, and Delta Lake Z-Ordering to drastically reduce compute costs on multi-terabyte workloads.",
+      "readTime": "2 min read",
+      "coverImage": "images/1789031841499.jpeg",
+      "summary": "Databricks Lakeflow Connect makes operational data ingestion native, serverless, and Unity Catalog–governed.",
       "tags": [
         "Databricks",
-        "Azure",
         "Delta Lake",
-        "Cost Optimization"
+        "Lakeflow Connect",
+        ,
+        "Auto CDC Flow"
       ],
-      "contentFile": "content/azure-databricks-cost-optimization.txt"
+      "contentFile": "content/databricks-cdc-deep-dive.txt"
     }
   ]
 }

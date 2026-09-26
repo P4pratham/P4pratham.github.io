@@ -1,0 +1,21 @@
+Stop building custom pipelines to get relational database data into Delta Lake. 🛑
+
+​Databricks Lakeflow Connect makes operational data ingestion native, serverless, and Unity Catalog–governed.
+
+​The most common architectural decision when setting it up:
+
+​👉 CDC / Change Tracking (Log-based):
+
+• Reads the database transaction logs via an Ingestion Gateway.
+• Captures inserts, updates, and hard deletes without querying production tables.
+• Delivers sub-minute, continuous latency.
+
+​👉 Query-Based:
+
+• Directly queries the database on a set schedule.
+• No gateway, no staging storage, zero extra infra.
+• Perfect for batched syncs, low-churn datasets, or when DBA permissions restrict CDC access.
+​Both output clean streaming tables ready for downstream Lakeflow Pipelines and dbt transformations.
+​Which ingestion pattern fits your architecture best? Let me know in the comments! 👇
+
+​🔗 Full guide: https://lnkd.in/gzV9PQ2W
