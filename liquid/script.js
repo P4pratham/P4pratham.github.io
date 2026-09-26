@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initThemeSwitcher();
     initDimensionDropdown();
     initContactForm();
+    initBlogs();
 });
 
 /* --------------------------------------------------------------------------
@@ -475,4 +476,139 @@ function initMobileMenu() {
         }
     });
 }
+
+/* --------------------------------------------------------------------------
+   11. BLOG ENGINE & LIQUID GLASS READER MODAL
+   -------------------------------------------------------------------------- */
+function initBlogs() {
+    const blogsGrid = document.getElementById('blogsGrid');
+    const modalOverlay = document.getElementById('blogModalOverlay');
+    const modalBody = document.getElementById('blogModalBody');
+    const closeBtn = document.getElementById('closeBlogModalBtn');
+
+    if (!blogsGrid) return;
+
+    let blogPosts = [];
+
+    fetch('blogs.json')
+        .then(response => {
+            if (!response.ok) throw new Error('Failed to fetch blogs.json');
+            return response.json();
+        })
+        .then(data => {
+            blogPosts = data.blogs || [];
+            renderBlogCards(blogPosts);
+        })
+        .catch(err => {
+            console.error('Blogs loading error:', err);
+            blogsGrid.innerHTML = `
+                <div class="glass-panel" style="grid-column: 1 / -1; padding: 2rem; text-align: center; color: var(--text-muted);">
+                    <i class="fas fa-newspaper" style="font-size: 2rem; color: var(--accent-cyan); margin-bottom: 1rem;"></i>
+                    <p>Articles are being loaded. If running locally, check server status.</p>
+                </div>
+            `;
+        });
+
+    function renderBlogCards(posts) {
+        if (!posts || posts.length === 0) {
+            blogsGrid.innerHTML = '<p class="text-muted">No blog posts available.</p>';
+            return;
+        }
+
+        blogsGrid.innerHTML = posts.map(blog => `
+            <article class="glass-panel blog-card tilt-card" data-blog-id="${escapeHtml(blog.id)}">
+                ${blog.coverImage ? `
+                    <div class="blog-card-cover">
+                        <img src="${escapeHtml(blog.coverImage)}" alt="${escapeHtml(blog.title)}" loading="lazy" class="blog-cover-img" />
+                        <span class="blog-read-time-pill"><i class="far fa-clock"></i> ${escapeHtml(blog.readTime || '5 min read')}</span>
+                    </div>
+                ` : ''}
+                <div class="blog-date"><i class="far fa-calendar-alt"></i> ${escapeHtml(blog.date)}</div>
+                <h3>${escapeHtml(blog.title)}</h3>
+                <p class="blog-summary">${escapeHtml(blog.summary)}</p>
+                <div class="blog-card-footer">
+                    <div class="blog-tags">
+                        ${(blog.tags || []).map(tag => `<span class="blog-tag">${escapeHtml(tag)}</span>`).join('')}
+                    </div>
+                    <span class="read-btn-link">Read <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </article>
+        `).join('');
+
+        // Re-attach tilt effect for new blog cards
+        if (typeof initGlassTiltAndShine === 'function') {
+            initGlassTiltAndShine();
+        }
+
+        // Attach click handler to open reader modal
+        blogsGrid.querySelectorAll('.blog-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const blogId = card.getAttribute('data-blog-id');
+                openBlogModal(blogId);
+            });
+        });
+    }
+
+    function openBlogModal(blogId) {
+        const blog = blogPosts.find(b => b.id === blogId);
+        if (!blog || !modalOverlay || !modalBody) return;
+
+        modalBody.innerHTML = `
+            <div class="modal-article-header">
+                <div class="modal-article-meta">
+                    <span><i class="far fa-calendar-alt"></i> ${escapeHtml(blog.date)}</span>
+                    <span><i class="far fa-clock"></i> ${escapeHtml(blog.readTime || '5 min read')}</span>
+                </div>
+                <h1 class="modal-article-title">${escapeHtml(blog.title)}</h1>
+                <div class="blog-tags" style="margin-top: 1rem;">
+                    ${(blog.tags || []).map(tag => `<span class="blog-tag">${escapeHtml(tag)}</span>`).join('')}
+                </div>
+            </div>
+            ${blog.coverImage ? `
+                <img src="${escapeHtml(blog.coverImage)}" alt="${escapeHtml(blog.title)}" class="modal-article-cover" />
+            ` : ''}
+            <div class="modal-article-body">
+                ${blog.content}
+            </div>
+        `;
+
+        modalOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeBlogModal() {
+        if (!modalOverlay) return;
+        modalOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeBlogModal);
+    }
+
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeBlogModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modalOverlay && modalOverlay.classList.contains('active')) {
+            closeBlogModal();
+        }
+    });
+
+    function escapeHtml(str) {
+        if (!str) return '';
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
+}
+
 

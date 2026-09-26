@@ -57,6 +57,8 @@
                             class="fas fa-briefcase"></i><span>Experience</span></a></li>
                 <li><a href="#projects" class="dock-link" data-section="projects"><i
                             class="fas fa-folder-open"></i><span>Projects</span></a></li>
+                <li><a href="#blogs" class="dock-link" data-section="blogs"><i
+                            class="fas fa-newspaper"></i><span>Blogs</span></a></li>
                 <li><a href="#contact" class="dock-link" data-section="contact"><i
                             class="fas fa-paper-plane"></i><span>Contact</span></a></li>
             </ul>
@@ -663,6 +665,19 @@
             </div>
         </section>
 
+        <!-- BLOGS SECTION -->
+        <section id="blogs" class="liquid-section">
+            <div class="section-header">
+                <span class="section-badge"><i class="fas fa-newspaper"></i> Technical Writings</span>
+                <h2 class="section-title">Articles & Insights</h2>
+                <p class="section-desc">Deep-dives into Data Engineering, Azure Databricks, Snowflake, and Cloud Lakehouse optimization.</p>
+            </div>
+
+            <div class="blogs-liquid-grid" id="blogsGrid">
+                <!-- Blog cards dynamically loaded from blogs.json -->
+            </div>
+        </section>
+
         <!-- CONTACT SECTION -->
         <section id="contact" class="liquid-section">
             <div class="section-header">
@@ -751,6 +766,18 @@
             </div>
         </div>
     </footer>
+
+    <!-- Apple Liquid Glass Blog Reader Modal -->
+    <div class="liquid-modal-overlay" id="blogModalOverlay">
+        <div class="liquid-modal-card glass-panel">
+            <button class="modal-close-btn" id="closeBlogModalBtn" title="Close Reader View">
+                <i class="fas fa-xmark"></i>
+            </button>
+            <div class="modal-body-scroll" id="blogModalBody">
+                <!-- Blog reader content populated by JavaScript -->
+            </div>
+        </div>
+    </div>
 
     <!-- Custom Script -->
     <script src="script.js"></script>

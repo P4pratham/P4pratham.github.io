@@ -1,0 +1,24 @@
+{
+  "blogs": [
+    {
+      "id": "azure-databricks-cost-optimization",
+      "title": "Optimizing Azure Databricks Cluster Costs in Telecom Delta Lake",
+      "date": "2026-09-25",
+      "readTime": "5 min read",
+      "coverImage": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+      "summary": "Key strategies for auto-scaling, spot instances, and Delta Lake Z-Ordering to drastically reduce compute costs on multi-terabyte workloads.",
+      "tags": ["Databricks", "Azure", "Delta Lake", "Cost Optimization"],
+      "content": "<p class=\"blog-lead\">Processing multi-terabyte daily telecom feeds on Azure Databricks can quickly explode cloud compute costs if cluster configurations are left unoptimized. Here are the core architectural patterns I implemented at Amdocs for Three UK to streamline cost efficiency.</p>\n<h3>1. Auto-Scaling with Single-Node & Spot Instances</h3>\n<p>For batch ETL jobs running during off-peak hours, leveraging Azure Spot VMs for worker nodes can reduce compute costs by up to 70-80%. Combined with tight auto-scaling thresholds, clusters scale down immediately when task queues drain.</p>\n<pre><code class=\"language-python\"># Example PySpark Delta Table Optimization\nspark.sql(\"\"\"\n  OPTIMIZE delta.`/mnt/telecom/cdr_fact`\n  ZORDER BY (account_id, event_timestamp)\n\"\"\")</code></pre>\n<h3>2. Delta Lake Liquid Clustering vs Z-Ordering</h3>\n<p>Traditional partitioning on high-cardinality keys leads to the small file problem. By switching to Delta Lake Z-Ordering or Liquid Clustering on frequent join keys (like Account ID and MSISDN), scan volumes drop significantly, leading to faster execution times and lower DBU consumption.</p>\n<h3>3. Key Takeaways</h3>\n<ul>\n  <li>Set aggressive auto-termination timeouts (e.g. 15-20 minutes) on interactive developer clusters.</li>\n  <li>Enforce Unity Catalog table ACLs to prevent redundant compute query scans.</li>\n  <li>Use Delta Live Tables (DLT) for automated pipeline maintenance and data quality checks.</li>\n</ul>"
+    },
+    {
+      "id": "pyspark-snowflake-elt-architecture",
+      "title": "High-Throughput PySpark & Snowflake ELT Architecture",
+      "date": "2026-09-18",
+      "readTime": "6 min read",
+      "coverImage": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80",
+      "summary": "Designing parallelized Spark-to-Snowflake connectors and presentation data marts for enterprise BI tools like Adobe Analytics & Medallia.",
+      "tags": ["PySpark", "Snowflake", "ETL", "Data Warehousing"],
+      "content": "<p class=\"blog-lead\">Modern enterprise analytics requires decoupling raw data lake storage from presentation data marts. Integrating Azure Databricks PySpark pipelines with Snowflake DWH creates a robust, highly parallelized analytics engine.</p>\n<h3>1. Optimizing the Spark-Snowflake Connector</h3>\n<p>When staging data into Snowflake, using Azure Blob Storage as an intermediate staging area allows Spark to perform bulk COPY operations directly into Snowflake virtual warehouses, avoiding single-row insert bottlenecks.</p>\n<pre><code class=\"language-python\"># High-performance Snowflake write configuration\ndf.write \\\n  .format(\"snowflake\") \\\n  .options(**sf_options) \\\n  .option(\"dbtable\", \"PRESENTATION.CUSTOMER_360\") \\\n  .option(\"usestagingtable\", \"ON\") \\\n  .mode(\"overwrite\") \\\n  .save()</code></pre>\n<h3>2. Dimensional Modeling & Presentation Layer</h3>\n<p>By enforcing a clean Medallion Architecture (Bronze -> Silver -> Gold), downstream Snowflake data marts (Adobe Customer Survey, Salesforce extracts) receive pre-validated, dimensional models ready for instant querying.</p>"
+    }
+  ]
+}
