@@ -1,34 +1,52 @@
 {
   "blogs": [
     {
-      "id": "databricks-sdp-lakeflow-pipelines",
+      "id": "SDP updates",
       "title": "If you are writing Lakeflow Pipelines in Databricks, it’s time to update your imports.",
       "date": "2026-09-26",
-      "readTime": "4 min read",
-      "coverImage": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
-      "summary": "Databricks is phasing out legacy @dlt decorators in favor of Apache Spark Declarative Pipelines (SDP) using pyspark.pipelines (dp). Here is why the shift matters.",
-      "tags": ["Databricks", "PySpark", "Lakeflow", "Delta Lake"],
-      "content": "<p class=\"blog-lead\">Databricks is phasing out the legacy <code>@dlt</code> decorators and <code>dlt</code> module in favor of <strong>Apache Spark Declarative Pipelines (SDP)</strong>, using <code>pyspark.pipelines</code> (conventionally imported as <code>dp</code>).</p>\n<h3>🔄 The Evolution from @dlt to dp</h3>\n<p><strong>The Old Pattern:</strong> Using <code>import dlt</code> tied pipeline logic tightly to proprietary Delta Live Tables syntax and runtime constructs.</p>\n<p><strong>The New Standard:</strong> Using <code>import pyspark.pipelines as dp</code> standardizes declarative data engineering directly within the broader Apache Spark and Lakeflow ecosystem.</p>\n<h3>⚡ What Changes in Your Code?</h3>\n<p>The shift is straightforward and keeps the declarative style you're used to:</p>\n<ul>\n  <li><code>import dlt</code> &rarr; <code>import pyspark.pipelines as dp</code></li>\n  <li><code>@dlt.table</code> &rarr; <code>@dp.table</code></li>\n  <li><code>@dlt.view</code> &rarr; <code>@dp.view</code></li>\n  <li><code>dlt.read()</code> / <code>dlt.read_stream()</code> &rarr; <code>dp.read()</code> / <code>dp.read_stream()</code></li>\n</ul>\n<p>Expectations syntax now standardizes under the new <code>dp</code> module decorators (like <code>@dp.expect</code>, <code>@dp.expect_or_drop</code>, and <code>@dp.expect_or_fail</code>).</p>\n<h3>💡 Why This Matters</h3>\n<ul>\n  <li><strong>Closer Alignment with Open Standards:</strong> Standardizing declarative pipelines under <code>pyspark</code> bridges the gap between proprietary platform code and open-source Spark paradigms.</li>\n  <li><strong>Core to Lakeflow:</strong> Powers next-gen Lakeflow Pipelines with clean lifecycle management, automated orchestration, and built-in Unity Catalog governance.</li>\n  <li><strong>Seamless Transition:</strong> It’s a clean 1:1 conceptual mapping, making modernization of existing DLT notebooks fast and painless.</li>\n</ul>\n<p>📚 <strong>Reference doc:</strong> <a href=\"https://lnkd.in/gxNMMs8v\" target=\"_blank\" style=\"color: var(--accent-cyan); text-decoration: underline;\">Databricks Documentation</a></p>"
-    },
-    {
-      "id": "azure-databricks-cost-optimization",
-      "title": "Optimizing Azure Databricks Cluster Costs in Telecom Delta Lake",
-      "date": "2026-09-25",
       "readTime": "5 min read",
       "coverImage": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
-      "summary": "Key strategies for auto-scaling, spot instances, and Delta Lake Z-Ordering to drastically reduce compute costs on multi-terabyte workloads.",
-      "tags": ["Databricks", "Azure", "Delta Lake", "Cost Optimization"],
+      "summary": "Databricks is phasing out the legacy @dlt decorators and dlt module in favor of Apache Spark Declarative Pipelines (SDP), using pyspark.pipelines (conventionally imported as dp).
+Here is what the shift looks like and why it matters:
+
+🔄 The Evolution from @dlt to dp
+
+The Old Pattern: Using import dlt tied pipeline logic tightly to proprietary Delta Live Tables syntax and runtime constructs.
+
+The New Standard: Using import pyspark.pipelines as dp standardizes declarative data engineering directly within the broader Apache Spark and Lakeflow ecosystem.
+
+⚡ What Changes in Your Code?
+
+The shift is straightforward and keeps the declarative style you're used to:
+
+import dlt ➔ import pyspark.pipelines as dp
+
+@dlt.table ➔ @dp.table
+
+@dlt.view ➔ @dp.view
+
+dlt.read() / dlt.read_stream() ➔ dp.read() / dp.read_stream()
+
+Expectations syntax now standardizes under the new dp module decorators (like @dp.expect, @dp.expect_or_drop, and @dp.expect_or_fail).
+
+💡 Why This Matters:
+
+Closer Alignment with Open Standards: Standardizing declarative pipelines under pyspark bridges the gap between proprietary platform code and open-source Spark paradigms.
+
+Core to Lakeflow: Powers next-gen Lakeflow Pipelines with clean lifecycle management, automated orchestration, and built-in Unity Catalog governance.
+
+Seamless Transition: It’s a clean 1: 1 conceptual mapping, making modernization of existing DLT notebooks fast and painless.
+
+Are you still running legacy dlt pipelines, or have you started refactoring over to pyspark.pipelines?
+
+📚 Reference doc: https: //lnkd.in/gxNMMs8v",
+      "tags": [
+        "Databricks",
+        "Azure",
+        "Delta Lake",
+        "Cost Optimization"
+      ],
       "content": "<p class=\"blog-lead\">Processing multi-terabyte daily telecom feeds on Azure Databricks can quickly explode cloud compute costs if cluster configurations are left unoptimized. Here are the core architectural patterns I implemented at Amdocs for Three UK to streamline cost efficiency.</p>\n<h3>1. Auto-Scaling with Single-Node & Spot Instances</h3>\n<p>For batch ETL jobs running during off-peak hours, leveraging Azure Spot VMs for worker nodes can reduce compute costs by up to 70-80%. Combined with tight auto-scaling thresholds, clusters scale down immediately when task queues drain.</p>\n<pre><code class=\"language-python\"># Example PySpark Delta Table Optimization\nspark.sql(\"\"\"\n  OPTIMIZE delta.`/mnt/telecom/cdr_fact`\n  ZORDER BY (account_id, event_timestamp)\n\"\"\")</code></pre>\n<h3>2. Delta Lake Liquid Clustering vs Z-Ordering</h3>\n<p>Traditional partitioning on high-cardinality keys leads to the small file problem. By switching to Delta Lake Z-Ordering or Liquid Clustering on frequent join keys (like Account ID and MSISDN), scan volumes drop significantly, leading to faster execution times and lower DBU consumption.</p>\n<h3>3. Key Takeaways</h3>\n<ul>\n  <li>Set aggressive auto-termination timeouts (e.g. 15-20 minutes) on interactive developer clusters.</li>\n  <li>Enforce Unity Catalog table ACLs to prevent redundant compute query scans.</li>\n  <li>Use Delta Live Tables (DLT) for automated pipeline maintenance and data quality checks.</li>\n</ul>"
-    },
-    {
-      "id": "pyspark-snowflake-elt-architecture",
-      "title": "High-Throughput PySpark & Snowflake ELT Architecture",
-      "date": "2026-09-18",
-      "readTime": "6 min read",
-      "coverImage": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80",
-      "summary": "Designing parallelized Spark-to-Snowflake connectors and presentation data marts for enterprise BI tools like Adobe Analytics & Medallia.",
-      "tags": ["PySpark", "Snowflake", "ETL", "Data Warehousing"],
-      "content": "<p class=\"blog-lead\">Modern enterprise analytics requires decoupling raw data lake storage from presentation data marts. Integrating Azure Databricks PySpark pipelines with Snowflake DWH creates a robust, highly parallelized analytics engine.</p>\n<h3>1. Optimizing the Spark-Snowflake Connector</h3>\n<p>When staging data into Snowflake, using Azure Blob Storage as an intermediate staging area allows Spark to perform bulk COPY operations directly into Snowflake virtual warehouses, avoiding single-row insert bottlenecks.</p>\n<pre><code class=\"language-python\"># High-performance Snowflake write configuration\ndf.write \\\n  .format(\"snowflake\") \\\n  .options(**sf_options) \\\n  .option(\"dbtable\", \"PRESENTATION.CUSTOMER_360\") \\\n  .option(\"usestagingtable\", \"ON\") \\\n  .mode(\"overwrite\") \\\n  .save()</code></pre>\n<h3>2. Dimensional Modeling & Presentation Layer</h3>\n<p>By enforcing a clean Medallion Architecture (Bronze -> Silver -> Gold), downstream Snowflake data marts (Adobe Customer Survey, Salesforce extracts) receive pre-validated, dimensional models ready for instant querying.</p>"
     }
   ]
 }
