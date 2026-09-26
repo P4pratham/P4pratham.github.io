@@ -1,6 +1,6 @@
 # Prathamesh Shelke - Portfolio Website
 
-A modern, dynamic portfolio website showcasing my experience as a Business Analyst with data engineering expertise.
+A modern, dynamic portfolio website showcasing my experience as a Senior Data Engineer with data engineering expertise.
 
 ## 🚀 Live Website
 
@@ -11,7 +11,7 @@ Visit: https://p4pratham.github.io/
 This is a professional portfolio website for Prathamesh Shelke, featuring:
 
 - **6+ Years of Experience** in the Telecom industry
-- **Business Analyst** with strong data engineering background
+- **Senior Data Engineer** with strong data engineering background
 - **Technical Expertise**: SQL, PySpark, Azure Databricks, Snowflake
 
 ## ✨ Features

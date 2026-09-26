@@ -36,7 +36,7 @@ const typedTextSpan = document.querySelector('.typed-text');
 const cursorSpan = document.querySelector('.cursor');
 
 const textArray = [
-    'Business Analyst',
+    'Senior Data Engineer',
     'Data Engineer',
     'SQL Expert',
     'PySpark Developer',

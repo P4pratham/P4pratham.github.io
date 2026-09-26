@@ -1,653 +1,717 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Prathamesh Shelke - Spider-Verse Portfolio | Business Analyst & Azure Data Engineer">
+    <meta name="description"
+        content="Prathamesh Shelke - Spider-Verse Portfolio | Senior Data Engineer & Azure Data Engineer">
     <title>Prathamesh Shelke | Spider-Verse Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Permanent+Marker&family=Russo+One&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bangers&family=Permanent+Marker&family=Russo+One&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<!-- Page Loader -->
-<div class="page-loader" id="pageLoader">
-    <div class="loader-text" data-text="LOADING...">LOADING...</div>
-</div>
-
-<!-- Spider Web Canvas -->
-<canvas id="spiderCanvas"></canvas>
-
-<!-- Dimension Portal (follows mouse) -->
-<div class="dimension-portal" id="dimensionPortal"></div>
-
-<!-- Spider-Sense Indicator -->
-<div class="spider-sense" id="spiderSense">
-    <div class="sense-waves">
-        <span class="sense-wave"></span>
-        <span class="sense-wave"></span>
-        <span class="sense-wave"></span>
-        <span class="sense-wave"></span>
-        <span class="sense-wave"></span>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-text" data-text="LOADING...">LOADING...</div>
     </div>
-    SPIDER-SENSE TINGLING!
-</div>
 
-<!-- Dimension Glitch Overlay -->
-<div class="dimension-glitch" id="dimensionGlitch"></div>
+    <!-- Spider Web Canvas -->
+    <canvas id="spiderCanvas"></canvas>
 
-<!-- Navigation -->
-<nav class="navbar" id="navbar">
-    <div class="nav-container">
-        <a href="#" class="logo">
-            <i class="fas fa-spider"></i> PRATHAMESH
-        </a>
-        <ul class="nav-menu" id="navMenu">
-            <li><a href="#home" class="nav-link">Home</a></li>
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#certifications" class="nav-link">Certs</a></li>
-            <li><a href="#skills" class="nav-link">Skills</a></li>
-            <li><a href="#experience" class="nav-link">XP</a></li>
-            <li><a href="#education" class="nav-link">Edu</a></li>
-            <li><a href="#projects" class="nav-link">Projects</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-        <a href="../liquid/index.html" class="dimension-toggle sv-active" title="Switch to Apple Liquid Glass UI">
-            <span class="toggle-track">
-                <span class="toggle-label-left">Liquid UI</span>
-                <span class="toggle-knob"><i class="fas fa-spider"></i></span>
-                <span class="toggle-label-right">Spider-Verse</span>
-            </span>
-        </a>
-        <div class="hamburger" id="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+    <!-- Dimension Portal (follows mouse) -->
+    <div class="dimension-portal" id="dimensionPortal"></div>
+
+    <!-- Spider-Sense Indicator -->
+    <div class="spider-sense" id="spiderSense">
+        <div class="sense-waves">
+            <span class="sense-wave"></span>
+            <span class="sense-wave"></span>
+            <span class="sense-wave"></span>
+            <span class="sense-wave"></span>
+            <span class="sense-wave"></span>
         </div>
+        SPIDER-SENSE TINGLING!
     </div>
-</nav>
 
-<!-- ==================== HERO ==================== -->
-<section id="home" class="hero">
-    <div class="comic-issue">
-        <span class="issue-box">ISSUE #42</span>
-        <span class="issue-price">EARTH-42B / 2026</span>
-    </div>
-    <div class="web-corner top-left">
-        <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width=".5" color="white">
-            <path d="M0,0 Q50,5 100,100"/><path d="M0,0 Q5,50 100,100"/><path d="M0,0 L100,100"/>
-            <path d="M0,0 Q30,3 60,50"/><path d="M0,0 Q3,30 50,60"/>
-            <path d="M20,0 Q25,15 50,30" opacity=".5"/><path d="M0,20 Q15,25 30,50" opacity=".5"/>
-            <ellipse cx="35" cy="35" rx="18" ry="8" transform="rotate(45,35,35)" opacity=".3"/>
-            <ellipse cx="20" cy="20" rx="10" ry="4" transform="rotate(45,20,20)" opacity=".3"/>
-        </svg>
-    </div>
-    <div class="web-corner top-right">
-        <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width=".5" color="white">
-            <path d="M0,0 Q50,5 100,100"/><path d="M0,0 Q5,50 100,100"/><path d="M0,0 L100,100"/>
-            <path d="M0,0 Q30,3 60,50"/><path d="M0,0 Q3,30 50,60"/>
-            <path d="M20,0 Q25,15 50,30" opacity=".5"/><path d="M0,20 Q15,25 30,50" opacity=".5"/>
-            <ellipse cx="35" cy="35" rx="18" ry="8" transform="rotate(45,35,35)" opacity=".3"/>
-        </svg>
-    </div>
-    <div class="hero-inner">
-        <div class="hero-text">
-            <div class="hero-badge">DIMENSION-42B</div>
-            <h1 class="glitch-title" data-text="PRATHAMESH SHELKE">PRATHAMESH SHELKE</h1>
-            <p class="hero-subtitle">Databricks Certified Data Engineer</p>
-            <p class="hero-role">Business Analyst | Azure Data Engineering | 6+ Years Telecom</p>
+    <!-- Dimension Glitch Overlay -->
+    <div class="dimension-glitch" id="dimensionGlitch"></div>
 
-            <div class="hero-stats" id="heroStats">
-                <!-- Config driven via ../liquid/config.json -->
-            </div>
-
-            <div class="hero-buttons">
-                <a href="#contact" class="btn-spidey primary">
-                    <i class="fas fa-envelope"></i> GET IN TOUCH
-                </a>
-                <a href="../resume.pdf" class="btn-spidey secondary" download>
-                    <i class="fas fa-download"></i> RESUME
-                </a>
-                <a href="#projects" class="btn-spidey secondary">
-                    <i class="fas fa-briefcase"></i> VIEW WORK
-                </a>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-spider"></i> PRATHAMESH
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#certifications" class="nav-link">Certs</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">XP</a></li>
+                <li><a href="#education" class="nav-link">Edu</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="../liquid/index.html" class="dimension-toggle sv-active" title="Switch to Apple Liquid Glass UI">
+                <span class="toggle-track">
+                    <span class="toggle-label-left">Liquid UI</span>
+                    <span class="toggle-knob"><i class="fas fa-spider"></i></span>
+                    <span class="toggle-label-right">Spider-Verse</span>
+                </span>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
         </div>
+    </nav>
 
-        <div class="hero-image">
-            <div class="profile-frame">
-                <img src="../profile_pic.jpg" alt="Prathamesh Shelke">
-                <div class="dimension-ring"></div>
-                <div class="dimension-ring"></div>
-                <div class="dimension-ring"></div>
-            </div>
+    <!-- ==================== HERO ==================== -->
+    <section id="home" class="hero">
+        <div class="comic-issue">
+            <span class="issue-box">ISSUE #42</span>
+            <span class="issue-price">EARTH-42B / 2026</span>
         </div>
-        <div class="multiverse-id">
-            <span class="id-dot"></span>
-            MULTIVERSE ID: <code>EARTH-42B-PS-2026</code>
+        <div class="web-corner top-left">
+            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width=".5" color="white">
+                <path d="M0,0 Q50,5 100,100" />
+                <path d="M0,0 Q5,50 100,100" />
+                <path d="M0,0 L100,100" />
+                <path d="M0,0 Q30,3 60,50" />
+                <path d="M0,0 Q3,30 50,60" />
+                <path d="M20,0 Q25,15 50,30" opacity=".5" />
+                <path d="M0,20 Q15,25 30,50" opacity=".5" />
+                <ellipse cx="35" cy="35" rx="18" ry="8" transform="rotate(45,35,35)" opacity=".3" />
+                <ellipse cx="20" cy="20" rx="10" ry="4" transform="rotate(45,20,20)" opacity=".3" />
+            </svg>
         </div>
-    </div>
-</section>
+        <div class="web-corner top-right">
+            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width=".5" color="white">
+                <path d="M0,0 Q50,5 100,100" />
+                <path d="M0,0 Q5,50 100,100" />
+                <path d="M0,0 L100,100" />
+                <path d="M0,0 Q30,3 60,50" />
+                <path d="M0,0 Q3,30 50,60" />
+                <path d="M20,0 Q25,15 50,30" opacity=".5" />
+                <path d="M0,20 Q15,25 30,50" opacity=".5" />
+                <ellipse cx="35" cy="35" rx="18" ry="8" transform="rotate(45,35,35)" opacity=".3" />
+            </svg>
+        </div>
+        <div class="hero-inner">
+            <div class="hero-text">
+                <div class="hero-badge">DIMENSION-42B</div>
+                <h1 class="glitch-title" data-text="PRATHAMESH SHELKE">PRATHAMESH SHELKE</h1>
+                <p class="hero-subtitle">Databricks Certified Data Engineer</p>
+                <p class="hero-role">Senior Data Engineer | Azure Data Engineering | 7+ Years Telecom</p>
 
-<div class="comic-divider reveal">
-    <span class="divider-text">ORIGIN STORY...</span>
-</div>
-
-<!-- ==================== ABOUT ==================== -->
-<section id="about" class="comic-section">
-    <span class="panel-number">PANEL 01</span>
-    <div class="web-corner bottom-right">
-        <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width=".5" color="white">
-            <path d="M0,0 Q50,5 100,100"/><path d="M0,0 Q5,50 100,100"/><path d="M0,0 L100,100"/>
-            <path d="M0,0 Q30,3 60,50"/><path d="M0,0 Q3,30 50,60"/>
-            <ellipse cx="35" cy="35" rx="18" ry="8" transform="rotate(45,35,35)" opacity=".3"/>
-        </svg>
-    </div>
-    <div class="container">
-        <h2 class="section-title">
-            <span class="title-text"><i class="fas fa-user"></i> ABOUT ME</span>
-        </h2>
-        <div class="about-grid">
-            <div class="about-card reveal">
-                <h3><i class="fas fa-spider"></i> THE ORIGIN STORY</h3>
-                <p>
-                    Business Analyst specializing in <strong>Azure Data Engineering</strong> and <strong>SQL Development</strong>,
-                    bringing 6+ years of hands-on experience in the Telecom industry with <strong>Amdocs</strong>.
-                </p>
-                <p style="margin-top:1rem;">
-                    My journey began as a <strong>System Analyst</strong>, where I developed expertise in
-                    SQL development, data engineering, and ETL pipeline implementation. Working in the
-                    <strong>Amdocs Data and Intelligence Unit</strong>, I've evolved into a
-                    <strong>Business Analyst</strong> role while continuing hands-on technical work with
-                    Azure Data Engineering stack.
-                </p>
-                <div class="thought-bubble">
-                    "With great data comes great responsibility..." - me, probably
+                <div class="hero-stats" id="heroStats">
+                    <!-- Config driven via ../liquid/config.json -->
                 </div>
-                <ul class="expertise-list">
-                    <li><i class="fas fa-bolt"></i> Azure Data Engineering (Databricks, ADF, Delta Lake)</li>
-                    <li><i class="fas fa-bolt"></i> SQL Development & Optimization</li>
-                    <li><i class="fas fa-bolt"></i> ETL/ELT Pipeline Development</li>
-                    <li><i class="fas fa-bolt"></i> Data Warehousing (Snowflake, Delta Lake)</li>
-                    <li><i class="fas fa-bolt"></i> Telecom BSS Data Integration</li>
-                    <li><i class="fas fa-bolt"></i> Dimensional Data Modeling</li>
-                </ul>
-                <div class="editors-note">
-                    Our hero didn't just stumble into data engineering. Years of debugging SQL at 3 AM forged him into the analyst he is today.
+
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-spidey primary">
+                        <i class="fas fa-envelope"></i> GET IN TOUCH
+                    </a>
+                    <a href="../resume.pdf" class="btn-spidey secondary" download>
+                        <i class="fas fa-download"></i> RESUME
+                    </a>
+                    <a href="#projects" class="btn-spidey secondary">
+                        <i class="fas fa-briefcase"></i> VIEW WORK
+                    </a>
                 </div>
             </div>
-            <div class="about-card reveal" style="border-color:rgba(0,229,255,.2);">
-                <h3><i class="fas fa-timeline"></i> THE MULTIVERSE JOURNEY</h3>
-                <div class="journey-cards">
-                    <div class="journey-card">
-                        <div class="jc-icon"><i class="fas fa-graduation-cap"></i></div>
-                        <div>
-                            <h4>PG-DAC</h4>
-                            <p>CDAC Pune (2019) - Diploma in Advanced Computing</p>
-                        </div>
+
+            <div class="hero-image">
+                <div class="profile-frame">
+                    <img src="../profile_pic.jpg" alt="Prathamesh Shelke">
+                    <div class="dimension-ring"></div>
+                    <div class="dimension-ring"></div>
+                    <div class="dimension-ring"></div>
+                </div>
+            </div>
+            <div class="multiverse-id">
+                <span class="id-dot"></span>
+                MULTIVERSE ID: <code>EARTH-42B-PS-2026</code>
+            </div>
+        </div>
+    </section>
+
+    <div class="comic-divider reveal">
+        <span class="divider-text">ORIGIN STORY...</span>
+    </div>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section id="about" class="comic-section">
+        <span class="panel-number">PANEL 01</span>
+        <div class="web-corner bottom-right">
+            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width=".5" color="white">
+                <path d="M0,0 Q50,5 100,100" />
+                <path d="M0,0 Q5,50 100,100" />
+                <path d="M0,0 L100,100" />
+                <path d="M0,0 Q30,3 60,50" />
+                <path d="M0,0 Q3,30 50,60" />
+                <ellipse cx="35" cy="35" rx="18" ry="8" transform="rotate(45,35,35)" opacity=".3" />
+            </svg>
+        </div>
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-text"><i class="fas fa-user"></i> ABOUT ME</span>
+            </h2>
+            <div class="about-grid">
+                <div class="about-card reveal">
+                    <h3><i class="fas fa-spider"></i> THE ORIGIN STORY</h3>
+                    <p>
+                        Senior Data Engineer specializing in <strong>Azure Data Engineering</strong> and <strong>SQL
+                            Development</strong>,
+                        bringing 6+ years of hands-on experience in the Telecom industry with <strong>Amdocs</strong>.
+                    </p>
+                    <p style="margin-top:1rem;">
+                        My journey began as a <strong>System Analyst</strong>, where I developed expertise in
+                        SQL development, data engineering, and ETL pipeline implementation. Working in the
+                        <strong>Amdocs Data and Intelligence Unit</strong>, I've evolved into a
+                        <strong>Senior Data Engineer</strong> role while continuing hands-on technical work with
+                        Azure Data Engineering stack.
+                    </p>
+                    <div class="thought-bubble">
+                        "With great data comes great responsibility..." - me, probably
                     </div>
-                    <div class="journey-card">
-                        <div class="jc-icon"><i class="fas fa-database"></i></div>
-                        <div>
-                            <h4>SYSTEM ANALYST</h4>
-                            <p>SQL Developer & Data Engineer (2019-2024)</p>
-                        </div>
-                    </div>
-                    <div class="journey-card current">
-                        <div class="jc-icon"><i class="fas fa-briefcase"></i></div>
-                        <div>
-                            <h4>BUSINESS ANALYST</h4>
-                            <p>Azure Data Engineering (2024 - Present)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="comic-divider reveal">
-    <span class="divider-text">MEANWHILE...</span>
-</div>
-
-<!-- ==================== CERTIFICATIONS ==================== -->
-<section id="certifications" class="comic-section">
-    <span class="panel-number">PANEL 02</span>
-    <div class="container">
-        <h2 class="section-title">
-            <span class="title-text"><i class="fas fa-certificate"></i> CERTIFICATIONS</span>
-        </h2>
-        <div class="cert-banner reveal">
-            <span class="canon-event"><i class="fas fa-exclamation-triangle"></i> CANON EVENT</span>
-            <div class="cert-badge-box">
-                <img src="https://pdf.ms.credential.net/badge/image?env=production&credential=59ntixjw"
-                     alt="Databricks Badge">
-            </div>
-            <div class="cert-info">
-                <h3>DATABRICKS CERTIFIED DATA ENGINEER ASSOCIATE</h3>
-                <div class="cert-meta">
-                    <span><i class="fas fa-graduation-cap"></i> Databricks Academy</span>
-                    <span><i class="fas fa-calendar-check"></i> Sep 2025 - Sep 2027</span>
-                </div>
-                <div class="cert-skills">
-                    <span class="cert-skill-tag">Lakehouse Platform</span>
-                    <span class="cert-skill-tag">Multi-hop ETL</span>
-                    <span class="cert-skill-tag">Apache Spark SQL</span>
-                    <span class="cert-skill-tag">Batch Processing</span>
-                    <span class="cert-skill-tag">Pipeline Deployment</span>
-                    <span class="cert-skill-tag">Databricks SQL</span>
-                    <span class="cert-skill-tag">Security Management</span>
-                </div>
-                <a href="https://credentials.databricks.com/f4e2330a-2d61-4bd3-bdc2-36aad246fd7b#acc.ToGkRZsi"
-                   target="_blank" class="btn-spidey primary cert-link">
-                    <i class="fas fa-external-link-alt"></i> VIEW CREDENTIAL
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="spidey-quote reveal">
-    <blockquote>
-        Anyone can wear the mask. You could wear the mask.<br>
-        If you didn't know that before, I hope you do now.
-        <span class="quote-author">- Miles Morales, Spider-Man: Into the Spider-Verse</span>
-    </blockquote>
-</div>
-
-<!-- ==================== SKILLS ==================== -->
-<section id="skills" class="comic-section">
-    <span class="panel-number">PANEL 03</span>
-    <div class="web-corner top-left">
-        <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width=".5" color="white">
-            <path d="M0,0 Q50,5 100,100"/><path d="M0,0 Q5,50 100,100"/><path d="M0,0 L100,100"/>
-            <path d="M0,0 Q30,3 60,50"/><path d="M0,0 Q3,30 50,60"/>
-            <ellipse cx="35" cy="35" rx="18" ry="8" transform="rotate(45,35,35)" opacity=".3"/>
-        </svg>
-    </div>
-    <div class="container">
-        <h2 class="section-title">
-            <span class="title-text"><i class="fas fa-code"></i> TECH STACK</span>
-        </h2>
-        <div class="skills-grid">
-            <div class="skill-card reveal">
-                <div class="skill-icon"><i class="fas fa-database"></i></div>
-                <h3>SQL</h3>
-                <div class="skill-bar"><div class="skill-progress" data-progress="95"></div></div>
-                <p>Advanced query optimization, stored procedures, complex joins, window functions</p>
-                <div class="skill-tags"><span>PostgreSQL</span><span>MySQL</span><span>T-SQL</span></div>
-            </div>
-            <div class="skill-card reveal">
-                <div class="skill-icon"><i class="fas fa-fire"></i></div>
-                <h3>PYSPARK</h3>
-                <div class="skill-bar"><div class="skill-progress" data-progress="90"></div></div>
-                <p>Distributed data processing, RDD transformations, DataFrame API, Spark SQL</p>
-                <div class="skill-tags"><span>ETL</span><span>Big Data</span><span>ML Pipelines</span></div>
-            </div>
-            <div class="skill-card reveal">
-                <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
-                <h3>AZURE DATABRICKS</h3>
-                <div class="skill-bar"><div class="skill-progress" data-progress="88"></div></div>
-                <p>Collaborative notebooks, Delta Lake, workflow orchestration, cluster management</p>
-                <div class="skill-tags"><span>Delta Lake</span><span>Notebooks</span><span>Azure</span></div>
-            </div>
-            <div class="skill-card reveal">
-                <div class="skill-icon"><i class="fas fa-snowflake"></i></div>
-                <h3>SNOWFLAKE</h3>
-                <div class="skill-bar"><div class="skill-progress" data-progress="85"></div></div>
-                <p>Cloud data warehousing, data sharing, time travel, zero-copy cloning</p>
-                <div class="skill-tags"><span>Data Warehouse</span><span>SnowSQL</span><span>Cloud</span></div>
-            </div>
-            <div class="skill-card reveal">
-                <div class="skill-icon"><i class="fas fa-bolt"></i></div>
-                <h3>SPARKSQL</h3>
-                <div class="skill-bar"><div class="skill-progress" data-progress="92"></div></div>
-                <p>Advanced SQL on big data, window functions, complex joins, query optimization</p>
-                <div class="skill-tags"><span>SQL Analytics</span><span>Optimization</span><span>Big Data</span></div>
-            </div>
-            <div class="skill-card reveal">
-                <div class="skill-icon"><i class="fas fa-layer-group"></i></div>
-                <h3>DELTA LAKE</h3>
-                <div class="skill-bar"><div class="skill-progress" data-progress="90"></div></div>
-                <p>ACID transactions, time travel, schema evolution, Delta Live Tables, lakehouse</p>
-                <div class="skill-tags"><span>DLT</span><span>Time Travel</span><span>ACID</span></div>
-            </div>
-        </div>
-
-        <div class="additional-tech reveal">
-            <h3><i class="fas fa-plus-circle"></i> ADDITIONAL TECH</h3>
-            <div class="tech-cloud">
-                <span><i class="fas fa-cloud"></i> Azure Data Factory</span>
-                <span><i class="fas fa-database"></i> Oracle PL/SQL</span>
-                <span><i class="fab fa-python"></i> Python</span>
-                <span><i class="fas fa-code-branch"></i> Git</span>
-                <span><i class="fas fa-tasks"></i> JIRA</span>
-                <span><i class="fas fa-book"></i> Confluence</span>
-                <span><i class="fab fa-linux"></i> Linux</span>
-                <span><i class="fas fa-chart-bar"></i> Power BI</span>
-                <span><i class="fas fa-terminal"></i> Shell Scripting</span>
-                <span><i class="fas fa-sync-alt"></i> Agile</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="comic-divider reveal">
-    <span class="divider-text">THE ADVENTURE CONTINUES...</span>
-</div>
-
-<!-- ==================== EXPERIENCE ==================== -->
-<section id="experience" class="comic-section">
-    <span class="panel-number">PANEL 04</span>
-    <div class="web-corner bottom-left">
-        <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width=".5" color="white">
-            <path d="M0,0 Q50,5 100,100"/><path d="M0,0 Q5,50 100,100"/><path d="M0,0 L100,100"/>
-            <path d="M0,0 Q30,3 60,50"/><path d="M0,0 Q3,30 50,60"/>
-        </svg>
-    </div>
-    <div class="container">
-        <h2 class="section-title">
-            <span class="title-text"><i class="fas fa-briefcase"></i> EXPERIENCE</span>
-        </h2>
-        <div class="exp-timeline">
-            <div class="exp-item reveal">
-                <div class="exp-dot"></div>
-                <div class="exp-card">
-                    <span class="canon-event"><i class="fas fa-exclamation-triangle"></i> CANON EVENT</span>
-                    <div class="exp-header">
-                        <h3>Business Analyst - Azure Data Engineering</h3>
-                        <span class="exp-duration">2024 - PRESENT</span>
-                    </div>
-                    <p class="exp-company"><i class="fas fa-building"></i> Amdocs - Data and Intelligence Unit</p>
-                    <p class="exp-project"><i class="fas fa-project-diagram"></i> <strong>Project:</strong> Cloud Data Warehouse for Three UK</p>
-                    <ul class="exp-achievements">
-                        <li>Developed Cloud Delta Lake House architecture for handling data from all BSS applications using Amdocs logical data model with Azure, integrated with Snowflake DWH</li>
-                        <li>Designed and implemented ELT pipelines using Azure Data Factory to orchestrate complex data processes</li>
-                        <li>Managed reference data using Delta Lake and transactional data using Databricks Delta Live Tables and workflows</li>
-                        <li>Implemented multiple presentation layers/data marts and data extracts on Snowflake DWH</li>
-                        <li>Worked on-site in London, UK to understand customer requirements and bridge implementation gaps</li>
-                        <li>Handled multiple major releases and technical/commercial go-lives on client location</li>
+                    <ul class="expertise-list">
+                        <li><i class="fas fa-bolt"></i> Azure Data Engineering (Databricks, ADF, Delta Lake)</li>
+                        <li><i class="fas fa-bolt"></i> SQL Development & Optimization</li>
+                        <li><i class="fas fa-bolt"></i> ETL/ELT Pipeline Development</li>
+                        <li><i class="fas fa-bolt"></i> Data Warehousing (Snowflake, Delta Lake)</li>
+                        <li><i class="fas fa-bolt"></i> Telecom BSS Data Integration</li>
+                        <li><i class="fas fa-bolt"></i> Dimensional Data Modeling</li>
                     </ul>
-                    <div class="exp-tech">
-                        <span>SQL</span><span>PySpark</span><span>Azure Databricks</span>
-                        <span>Snowflake</span><span>Azure Data Factory</span><span>Delta Lake</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="exp-item reveal">
-                <div class="exp-dot"></div>
-                <div class="exp-card">
-                    <div class="exp-header">
-                        <h3>System Analyst - Data Engineer</h3>
-                        <span class="exp-duration">2019 - 2024</span>
-                    </div>
-                    <p class="exp-company"><i class="fas fa-building"></i> Amdocs - Data and Intelligence Unit</p>
-                    <p class="exp-project"><i class="fas fa-project-diagram"></i> <strong>Project:</strong> Cloud Data Warehouse for Three UK</p>
-                    <ul class="exp-achievements">
-                        <li>Extract, load and transform telecom ordering, billing, and CRM data from multiple BSS applications to single cloud lake-house platform</li>
-                        <li>Incorporated data from range of Amdocs applications including OMS, ABP, ACPE, Amdocs CRM and Ensemble</li>
-                        <li>Performed dimensional data modeling and wrote source-to-target mappings based on business requirements</li>
-                        <li>Managed data transformations and pipelines using Databricks notebooks and workflows</li>
-                        <li>Followed Agile Methodology and used JIRA to track issues and bugs</li>
-                        <li>Handled multiple telecom clients to transform business requirements into technical solutions</li>
-                    </ul>
-                    <div class="exp-tech">
-                        <span>SQL</span><span>PySpark</span><span>Azure Databricks</span>
-                        <span>Oracle PL/SQL</span><span>Python</span><span>JIRA</span>
-                    </div>
                     <div class="editors-note">
-                        It was during this era that our hero first encountered the legendary Databricks cluster -- a power that would forever change his trajectory across dimensions.
+                        Our hero didn't just stumble into data engineering. Years of debugging SQL at 3 AM forged him
+                        into the analyst he is today.
+                    </div>
+                </div>
+                <div class="about-card reveal" style="border-color:rgba(0,229,255,.2);">
+                    <h3><i class="fas fa-timeline"></i> THE MULTIVERSE JOURNEY</h3>
+                    <div class="journey-cards">
+                        <div class="journey-card">
+                            <div class="jc-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div>
+                                <h4>PG-DAC</h4>
+                                <p>CDAC Pune (2019) - Diploma in Advanced Computing</p>
+                            </div>
+                        </div>
+                        <div class="journey-card">
+                            <div class="jc-icon"><i class="fas fa-database"></i></div>
+                            <div>
+                                <h4>SYSTEM ANALYST</h4>
+                                <p>SQL Developer & Data Engineer (2019-2024)</p>
+                            </div>
+                        </div>
+                        <div class="journey-card current">
+                            <div class="jc-icon"><i class="fas fa-briefcase"></i></div>
+                            <div>
+                                <h4>SENIOR DATA ENGINEER</h4>
+                                <p>Azure Data Engineering (2024 - Present)</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="key-achievements reveal">
-            <h3><i class="fas fa-trophy"></i> KEY ACHIEVEMENTS</h3>
-            <div class="achievements-row">
-                <div class="ach-card">
-                    <div class="ach-icon"><i class="fas fa-globe"></i></div>
-                    <h4>GLOBAL ENGAGEMENT</h4>
-                    <p>Worked multiple times in London, UK on client location for major releases and go-lives</p>
-                </div>
-                <div class="ach-card">
-                    <div class="ach-icon"><i class="fas fa-rocket"></i></div>
-                    <h4>CLOUD MIGRATION</h4>
-                    <p>Led migration of BSS data to cloud-based Delta Lake House architecture with Azure</p>
-                </div>
-                <div class="ach-card">
-                    <div class="ach-icon"><i class="fas fa-database"></i></div>
-                    <h4>DATA INTEGRATION</h4>
-                    <p>Integrated data from multiple Amdocs BSS applications (OMS, ABP, ACPE, CRM, Ensemble)</p>
-                </div>
-            </div>
-        </div>
+    <div class="comic-divider reveal">
+        <span class="divider-text">MEANWHILE...</span>
     </div>
-</section>
 
-<div class="comic-divider reveal">
-    <span class="divider-text">FLASHBACK!</span>
-</div>
-
-<!-- ==================== EDUCATION ==================== -->
-<section id="education" class="comic-section">
-    <span class="panel-number">PANEL 05</span>
-    <div class="container">
-        <h2 class="section-title">
-            <span class="title-text"><i class="fas fa-graduation-cap"></i> EDUCATION</span>
-        </h2>
-        <div class="edu-grid">
-            <div class="edu-card reveal">
-                <div class="edu-icon"><i class="fas fa-certificate"></i></div>
-                <h3>PG DIPLOMA IN ADVANCED COMPUTING (DAC)</h3>
-                <p class="edu-institute"><i class="fas fa-university"></i> Centre for Development of Advanced Computing (CDAC)</p>
-                <p class="edu-location"><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra</p>
-                <div class="edu-meta">
-                    <span><i class="fas fa-calendar"></i> August 2019</span>
-                    <span><i class="fas fa-award"></i> 73.30%</span>
+    <!-- ==================== CERTIFICATIONS ==================== -->
+    <section id="certifications" class="comic-section">
+        <span class="panel-number">PANEL 02</span>
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-text"><i class="fas fa-certificate"></i> CERTIFICATIONS</span>
+            </h2>
+            <div class="cert-banner reveal">
+                <span class="canon-event"><i class="fas fa-exclamation-triangle"></i> CANON EVENT</span>
+                <div class="cert-badge-box">
+                    <img src="https://pdf.ms.credential.net/badge/image?env=production&credential=59ntixjw"
+                        alt="Databricks Badge">
                 </div>
-            </div>
-            <div class="edu-card reveal">
-                <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
-                <h3>B.E. - INFORMATION TECHNOLOGY</h3>
-                <p class="edu-institute"><i class="fas fa-university"></i> Savitribai Phule Pune University (SPPU)</p>
-                <p class="edu-location"><i class="fas fa-map-marker-alt"></i> Ahmednagar, Maharashtra</p>
-                <div class="edu-meta">
-                    <span><i class="fas fa-calendar"></i> August 2018</span>
-                    <span><i class="fas fa-award"></i> 67.93%</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="spidey-quote reveal">
-    <blockquote>
-        That person who helps others simply because it should or must be done,
-        and because it is the right thing to do, is indeed without a doubt, a real superhero.
-        <span class="quote-author">- Stan Lee</span>
-    </blockquote>
-</div>
-
-<div class="comic-divider reveal">
-    <span class="divider-text">NEXT CHAPTER!</span>
-</div>
-
-<!-- ==================== PROJECTS ==================== -->
-<section id="projects" class="comic-section">
-    <span class="panel-number">PANEL 06</span>
-    <div class="web-corner top-right">
-        <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width=".5" color="white">
-            <path d="M0,0 Q50,5 100,100"/><path d="M0,0 Q5,50 100,100"/><path d="M0,0 L100,100"/>
-            <path d="M0,0 Q30,3 60,50"/><path d="M0,0 Q3,30 50,60"/>
-            <ellipse cx="35" cy="35" rx="18" ry="8" transform="rotate(45,35,35)" opacity=".3"/>
-        </svg>
-    </div>
-    <div class="container">
-        <h2 class="section-title">
-            <span class="title-text"><i class="fas fa-project-diagram"></i> PROJECTS</span>
-        </h2>
-        <div class="projects-grid">
-            <div class="project-card reveal">
-                <div class="proj-icon"><i class="fas fa-cloud"></i></div>
-                <h3>CLOUD DATA WAREHOUSE - THREE UK</h3>
-                <p class="proj-desc">
-                    Developed Cloud Delta Lake House architecture for handling data from all BSS applications
-                    using Amdocs logical data model with Azure, integrated with Snowflake DWH.
-                </p>
-                <div class="proj-tech">
-                    <span>Azure Databricks</span><span>Snowflake</span><span>Delta Lake</span><span>ADF</span>
-                </div>
-                <div class="proj-impact">
-                    <i class="fas fa-lightbulb"></i> Unified data from 6+ BSS applications for enterprise-wide analytics
-                </div>
-            </div>
-
-            <div class="project-card reveal">
-                <div class="proj-icon"><i class="fas fa-project-diagram"></i></div>
-                <h3>ELT PIPELINE ORCHESTRATION</h3>
-                <p class="proj-desc">
-                    Designed and implemented ELT pipelines using Azure Data Factory to orchestrate data
-                    processes. Managed reference data using Delta Lake and transactional data using DLT.
-                </p>
-                <div class="proj-tech">
-                    <span>ADF</span><span>Delta Live Tables</span><span>PySpark</span><span>Workflows</span>
-                </div>
-                <div class="proj-impact">
-                    <i class="fas fa-lightbulb"></i> Automated data pipeline processing TB+ of telecom data daily
-                </div>
-            </div>
-
-            <div class="project-card reveal">
-                <div class="proj-icon"><i class="fas fa-database"></i></div>
-                <h3>BSS DATA INTEGRATION PLATFORM</h3>
-                <p class="proj-desc">
-                    Incorporated data from range of Amdocs applications including OMS, ABP, ACPE,
-                    Amdocs CRM and Ensemble into a unified data platform.
-                </p>
-                <div class="proj-tech">
-                    <span>SQL</span><span>PySpark</span><span>Oracle PL/SQL</span><span>Azure</span>
-                </div>
-                <div class="proj-impact">
-                    <i class="fas fa-lightbulb"></i> Centralized data from 5 core telecom applications
-                </div>
-            </div>
-
-            <div class="project-card reveal">
-                <div class="proj-icon"><i class="fas fa-chart-bar"></i></div>
-                <h3>DATA MARTS & PRESENTATION LAYERS</h3>
-                <p class="proj-desc">
-                    Implemented multiple presentation layers and data extracts on Snowflake DWH including
-                    Adobe, Salesforce, Affiliate Partners, and Medallia Customer Survey extracts.
-                </p>
-                <div class="proj-tech">
-                    <span>Snowflake</span><span>SQL</span><span>Data Modeling</span><span>ETL</span>
-                </div>
-                <div class="proj-impact">
-                    <i class="fas fa-lightbulb"></i> Enabled multiple business use cases with customized data marts
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="comic-divider reveal">
-    <span class="divider-text">TO BE CONTINUED?</span>
-</div>
-
-<!-- ==================== CONTACT ==================== -->
-<section id="contact" class="comic-section">
-    <span class="panel-number">PANEL 07</span>
-    <div class="web-corner bottom-right">
-        <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width=".5" color="white">
-            <path d="M0,0 Q50,5 100,100"/><path d="M0,0 Q5,50 100,100"/><path d="M0,0 L100,100"/>
-            <path d="M0,0 Q30,3 60,50"/><path d="M0,0 Q3,30 50,60"/>
-        </svg>
-    </div>
-    <div class="container">
-        <h2 class="section-title">
-            <span class="title-text"><i class="fas fa-envelope"></i> CONTACT</span>
-        </h2>
-        <div class="contact-grid">
-            <div class="contact-info reveal">
-                <h3>LET'S CONNECT ACROSS DIMENSIONS!</h3>
-                <p>
-                    I'm always interested in discussing data engineering challenges,
-                    business analytics opportunities, or potential collaborations.
-                </p>
-                <div class="contact-methods">
-                    <a href="mailto:prathamshelke223299@gmail.com" class="contact-method">
-                        <i class="fas fa-envelope"></i>
-                        <span>prathamshelke223299@gmail.com</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/prathamesh-shelke-992488a9/" class="contact-method" target="_blank">
-                        <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn Profile</span>
-                    </a>
-                    <a href="https://github.com/P4pratham" class="contact-method" target="_blank">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub Profile</span>
+                <div class="cert-info">
+                    <h3>DATABRICKS CERTIFIED DATA ENGINEER ASSOCIATE</h3>
+                    <div class="cert-meta">
+                        <span><i class="fas fa-graduation-cap"></i> Databricks Academy</span>
+                        <span><i class="fas fa-calendar-check"></i> Sep 2025 - Sep 2027</span>
+                    </div>
+                    <div class="cert-skills">
+                        <span class="cert-skill-tag">Lakehouse Platform</span>
+                        <span class="cert-skill-tag">Multi-hop ETL</span>
+                        <span class="cert-skill-tag">Apache Spark SQL</span>
+                        <span class="cert-skill-tag">Batch Processing</span>
+                        <span class="cert-skill-tag">Pipeline Deployment</span>
+                        <span class="cert-skill-tag">Databricks SQL</span>
+                        <span class="cert-skill-tag">Security Management</span>
+                    </div>
+                    <a href="https://credentials.databricks.com/f4e2330a-2d61-4bd3-bdc2-36aad246fd7b#acc.ToGkRZsi"
+                        target="_blank" class="btn-spidey primary cert-link">
+                        <i class="fas fa-external-link-alt"></i> VIEW CREDENTIAL
                     </a>
                 </div>
-                <div class="thought-bubble">
-                    "Every Spider-Person needs a team. Reach out -- let's build something that echoes across every dimension."
-                </div>
-                <div class="availability-badge">
-                    <i class="fas fa-circle"></i>
-                    <span>Open to new opportunities and collaborations</span>
-                </div>
-            </div>
-            <div class="reveal">
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <label for="name">NAME</label>
-                        <input type="text" id="name" name="name" required placeholder="Your name...">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">EMAIL</label>
-                        <input type="email" id="email" name="email" required placeholder="your@email.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">MESSAGE</label>
-                        <textarea id="message" name="message" rows="5" required placeholder="Your message..."></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">
-                        <i class="fas fa-paper-plane"></i> SEND MESSAGE
-                    </button>
-                </form>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        <div class="the-end">THE END... ?</div>
-        <div class="footer-brand" style="margin-top:1.5rem;">
-            <i class="fas fa-spider"></i> PRATHAMESH SHELKE
-        </div>
-        <p>&copy; 2026 Prathamesh Shelke. Across Every Dimension, Data Tells a Story.</p>
-        <p class="story-note">
-            Previously on: <a href="../classic.html">The Classic Dimension</a> &bull;
-            Next Issue: Coming Soon...
-        </p>
-        <div class="footer-social">
-            <a href="https://www.linkedin.com/in/prathamesh-shelke-992488a9/" target="_blank">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/P4pratham" target="_blank">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="mailto:prathamshelke223299@gmail.com">
-                <i class="fas fa-envelope"></i>
-            </a>
-        </div>
+    <div class="spidey-quote reveal">
+        <blockquote>
+            Anyone can wear the mask. You could wear the mask.<br>
+            If you didn't know that before, I hope you do now.
+            <span class="quote-author">- Miles Morales, Spider-Man: Into the Spider-Verse</span>
+        </blockquote>
     </div>
-</footer>
 
-<script src="script.js"></script>
+    <!-- ==================== SKILLS ==================== -->
+    <section id="skills" class="comic-section">
+        <span class="panel-number">PANEL 03</span>
+        <div class="web-corner top-left">
+            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width=".5" color="white">
+                <path d="M0,0 Q50,5 100,100" />
+                <path d="M0,0 Q5,50 100,100" />
+                <path d="M0,0 L100,100" />
+                <path d="M0,0 Q30,3 60,50" />
+                <path d="M0,0 Q3,30 50,60" />
+                <ellipse cx="35" cy="35" rx="18" ry="8" transform="rotate(45,35,35)" opacity=".3" />
+            </svg>
+        </div>
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-text"><i class="fas fa-code"></i> TECH STACK</span>
+            </h2>
+            <div class="skills-grid">
+                <div class="skill-card reveal">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <h3>SQL</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="95"></div>
+                    </div>
+                    <p>Advanced query optimization, stored procedures, complex joins, window functions</p>
+                    <div class="skill-tags"><span>PostgreSQL</span><span>MySQL</span><span>T-SQL</span></div>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-icon"><i class="fas fa-fire"></i></div>
+                    <h3>PYSPARK</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="90"></div>
+                    </div>
+                    <p>Distributed data processing, RDD transformations, DataFrame API, Spark SQL</p>
+                    <div class="skill-tags"><span>ETL</span><span>Big Data</span><span>ML Pipelines</span></div>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-icon"><i class="fab fa-microsoft"></i></div>
+                    <h3>AZURE DATABRICKS</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="88"></div>
+                    </div>
+                    <p>Collaborative notebooks, Delta Lake, workflow orchestration, cluster management</p>
+                    <div class="skill-tags"><span>Delta Lake</span><span>Notebooks</span><span>Azure</span></div>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-icon"><i class="fas fa-snowflake"></i></div>
+                    <h3>SNOWFLAKE</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="85"></div>
+                    </div>
+                    <p>Cloud data warehousing, data sharing, time travel, zero-copy cloning</p>
+                    <div class="skill-tags"><span>Data Warehouse</span><span>SnowSQL</span><span>Cloud</span></div>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>SPARKSQL</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="92"></div>
+                    </div>
+                    <p>Advanced SQL on big data, window functions, complex joins, query optimization</p>
+                    <div class="skill-tags"><span>SQL Analytics</span><span>Optimization</span><span>Big Data</span>
+                    </div>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-icon"><i class="fas fa-layer-group"></i></div>
+                    <h3>DELTA LAKE</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="90"></div>
+                    </div>
+                    <p>ACID transactions, time travel, schema evolution, Delta Live Tables, lakehouse</p>
+                    <div class="skill-tags"><span>DLT</span><span>Time Travel</span><span>ACID</span></div>
+                </div>
+            </div>
+
+            <div class="additional-tech reveal">
+                <h3><i class="fas fa-plus-circle"></i> ADDITIONAL TECH</h3>
+                <div class="tech-cloud">
+                    <span><i class="fas fa-cloud"></i> Azure Data Factory</span>
+                    <span><i class="fas fa-database"></i> Oracle PL/SQL</span>
+                    <span><i class="fab fa-python"></i> Python</span>
+                    <span><i class="fas fa-code-branch"></i> Git</span>
+                    <span><i class="fas fa-tasks"></i> JIRA</span>
+                    <span><i class="fas fa-book"></i> Confluence</span>
+                    <span><i class="fab fa-linux"></i> Linux</span>
+                    <span><i class="fas fa-chart-bar"></i> Power BI</span>
+                    <span><i class="fas fa-terminal"></i> Shell Scripting</span>
+                    <span><i class="fas fa-sync-alt"></i> Agile</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="comic-divider reveal">
+        <span class="divider-text">THE ADVENTURE CONTINUES...</span>
+    </div>
+
+    <!-- ==================== EXPERIENCE ==================== -->
+    <section id="experience" class="comic-section">
+        <span class="panel-number">PANEL 04</span>
+        <div class="web-corner bottom-left">
+            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width=".5" color="white">
+                <path d="M0,0 Q50,5 100,100" />
+                <path d="M0,0 Q5,50 100,100" />
+                <path d="M0,0 L100,100" />
+                <path d="M0,0 Q30,3 60,50" />
+                <path d="M0,0 Q3,30 50,60" />
+            </svg>
+        </div>
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-text"><i class="fas fa-briefcase"></i> EXPERIENCE</span>
+            </h2>
+            <div class="exp-timeline">
+                <div class="exp-item reveal">
+                    <div class="exp-dot"></div>
+                    <div class="exp-card">
+                        <span class="canon-event"><i class="fas fa-exclamation-triangle"></i> CANON EVENT</span>
+                        <div class="exp-header">
+                            <h3>Senior Data Engineer - Azure Data Engineering</h3>
+                            <span class="exp-duration">2024 - PRESENT</span>
+                        </div>
+                        <p class="exp-company"><i class="fas fa-building"></i> Amdocs - Data and Intelligence Unit</p>
+                        <p class="exp-project"><i class="fas fa-project-diagram"></i> <strong>Project:</strong> Cloud
+                            Data Warehouse for Three UK</p>
+                        <ul class="exp-achievements">
+                            <li>Developed Cloud Delta Lake House architecture for handling data from all BSS
+                                applications using Amdocs logical data model with Azure, integrated with Snowflake DWH
+                            </li>
+                            <li>Designed and implemented ELT pipelines using Azure Data Factory to orchestrate complex
+                                data processes</li>
+                            <li>Managed reference data using Delta Lake and transactional data using Databricks Delta
+                                Live Tables and workflows</li>
+                            <li>Implemented multiple presentation layers/data marts and data extracts on Snowflake DWH
+                            </li>
+                            <li>Worked on-site in London, UK to understand customer requirements and bridge
+                                implementation gaps</li>
+                            <li>Handled multiple major releases and technical/commercial go-lives on client location
+                            </li>
+                        </ul>
+                        <div class="exp-tech">
+                            <span>SQL</span><span>PySpark</span><span>Azure Databricks</span>
+                            <span>Snowflake</span><span>Azure Data Factory</span><span>Delta Lake</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exp-item reveal">
+                    <div class="exp-dot"></div>
+                    <div class="exp-card">
+                        <div class="exp-header">
+                            <h3>System Analyst - Data Engineer</h3>
+                            <span class="exp-duration">2019 - 2024</span>
+                        </div>
+                        <p class="exp-company"><i class="fas fa-building"></i> Amdocs - Data and Intelligence Unit</p>
+                        <p class="exp-project"><i class="fas fa-project-diagram"></i> <strong>Project:</strong> Cloud
+                            Data Warehouse for Three UK</p>
+                        <ul class="exp-achievements">
+                            <li>Extract, load and transform telecom ordering, billing, and CRM data from multiple BSS
+                                applications to single cloud lake-house platform</li>
+                            <li>Incorporated data from range of Amdocs applications including OMS, ABP, ACPE, Amdocs CRM
+                                and Ensemble</li>
+                            <li>Performed dimensional data modeling and wrote source-to-target mappings based on
+                                business requirements</li>
+                            <li>Managed data transformations and pipelines using Databricks notebooks and workflows</li>
+                            <li>Followed Agile Methodology and used JIRA to track issues and bugs</li>
+                            <li>Handled multiple telecom clients to transform business requirements into technical
+                                solutions</li>
+                        </ul>
+                        <div class="exp-tech">
+                            <span>SQL</span><span>PySpark</span><span>Azure Databricks</span>
+                            <span>Oracle PL/SQL</span><span>Python</span><span>JIRA</span>
+                        </div>
+                        <div class="editors-note">
+                            It was during this era that our hero first encountered the legendary Databricks cluster -- a
+                            power that would forever change his trajectory across dimensions.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-achievements reveal">
+                <h3><i class="fas fa-trophy"></i> KEY ACHIEVEMENTS</h3>
+                <div class="achievements-row">
+                    <div class="ach-card">
+                        <div class="ach-icon"><i class="fas fa-globe"></i></div>
+                        <h4>GLOBAL ENGAGEMENT</h4>
+                        <p>Worked multiple times in London, UK on client location for major releases and go-lives</p>
+                    </div>
+                    <div class="ach-card">
+                        <div class="ach-icon"><i class="fas fa-rocket"></i></div>
+                        <h4>CLOUD MIGRATION</h4>
+                        <p>Led migration of BSS data to cloud-based Delta Lake House architecture with Azure</p>
+                    </div>
+                    <div class="ach-card">
+                        <div class="ach-icon"><i class="fas fa-database"></i></div>
+                        <h4>DATA INTEGRATION</h4>
+                        <p>Integrated data from multiple Amdocs BSS applications (OMS, ABP, ACPE, CRM, Ensemble)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="comic-divider reveal">
+        <span class="divider-text">FLASHBACK!</span>
+    </div>
+
+    <!-- ==================== EDUCATION ==================== -->
+    <section id="education" class="comic-section">
+        <span class="panel-number">PANEL 05</span>
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-text"><i class="fas fa-graduation-cap"></i> EDUCATION</span>
+            </h2>
+            <div class="edu-grid">
+                <div class="edu-card reveal">
+                    <div class="edu-icon"><i class="fas fa-certificate"></i></div>
+                    <h3>PG DIPLOMA IN ADVANCED COMPUTING (DAC)</h3>
+                    <p class="edu-institute"><i class="fas fa-university"></i> Centre for Development of Advanced
+                        Computing (CDAC)</p>
+                    <p class="edu-location"><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra</p>
+                    <div class="edu-meta">
+                        <span><i class="fas fa-calendar"></i> August 2019</span>
+                        <span><i class="fas fa-award"></i> 73.30%</span>
+                    </div>
+                </div>
+                <div class="edu-card reveal">
+                    <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>B.E. - INFORMATION TECHNOLOGY</h3>
+                    <p class="edu-institute"><i class="fas fa-university"></i> Savitribai Phule Pune University (SPPU)
+                    </p>
+                    <p class="edu-location"><i class="fas fa-map-marker-alt"></i> Ahmednagar, Maharashtra</p>
+                    <div class="edu-meta">
+                        <span><i class="fas fa-calendar"></i> August 2018</span>
+                        <span><i class="fas fa-award"></i> 67.93%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="spidey-quote reveal">
+        <blockquote>
+            That person who helps others simply because it should or must be done,
+            and because it is the right thing to do, is indeed without a doubt, a real superhero.
+            <span class="quote-author">- Stan Lee</span>
+        </blockquote>
+    </div>
+
+    <div class="comic-divider reveal">
+        <span class="divider-text">NEXT CHAPTER!</span>
+    </div>
+
+    <!-- ==================== PROJECTS ==================== -->
+    <section id="projects" class="comic-section">
+        <span class="panel-number">PANEL 06</span>
+        <div class="web-corner top-right">
+            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width=".5" color="white">
+                <path d="M0,0 Q50,5 100,100" />
+                <path d="M0,0 Q5,50 100,100" />
+                <path d="M0,0 L100,100" />
+                <path d="M0,0 Q30,3 60,50" />
+                <path d="M0,0 Q3,30 50,60" />
+                <ellipse cx="35" cy="35" rx="18" ry="8" transform="rotate(45,35,35)" opacity=".3" />
+            </svg>
+        </div>
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-text"><i class="fas fa-project-diagram"></i> PROJECTS</span>
+            </h2>
+            <div class="projects-grid">
+                <div class="project-card reveal">
+                    <div class="proj-icon"><i class="fas fa-cloud"></i></div>
+                    <h3>CLOUD DATA WAREHOUSE - THREE UK</h3>
+                    <p class="proj-desc">
+                        Developed Cloud Delta Lake House architecture for handling data from all BSS applications
+                        using Amdocs logical data model with Azure, integrated with Snowflake DWH.
+                    </p>
+                    <div class="proj-tech">
+                        <span>Azure Databricks</span><span>Snowflake</span><span>Delta Lake</span><span>ADF</span>
+                    </div>
+                    <div class="proj-impact">
+                        <i class="fas fa-lightbulb"></i> Unified data from 6+ BSS applications for enterprise-wide
+                        analytics
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <div class="proj-icon"><i class="fas fa-project-diagram"></i></div>
+                    <h3>ELT PIPELINE ORCHESTRATION</h3>
+                    <p class="proj-desc">
+                        Designed and implemented ELT pipelines using Azure Data Factory to orchestrate data
+                        processes. Managed reference data using Delta Lake and transactional data using DLT.
+                    </p>
+                    <div class="proj-tech">
+                        <span>ADF</span><span>Delta Live Tables</span><span>PySpark</span><span>Workflows</span>
+                    </div>
+                    <div class="proj-impact">
+                        <i class="fas fa-lightbulb"></i> Automated data pipeline processing TB+ of telecom data daily
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <div class="proj-icon"><i class="fas fa-database"></i></div>
+                    <h3>BSS DATA INTEGRATION PLATFORM</h3>
+                    <p class="proj-desc">
+                        Incorporated data from range of Amdocs applications including OMS, ABP, ACPE,
+                        Amdocs CRM and Ensemble into a unified data platform.
+                    </p>
+                    <div class="proj-tech">
+                        <span>SQL</span><span>PySpark</span><span>Oracle PL/SQL</span><span>Azure</span>
+                    </div>
+                    <div class="proj-impact">
+                        <i class="fas fa-lightbulb"></i> Centralized data from 5 core telecom applications
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <div class="proj-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3>DATA MARTS & PRESENTATION LAYERS</h3>
+                    <p class="proj-desc">
+                        Implemented multiple presentation layers and data extracts on Snowflake DWH including
+                        Adobe, Salesforce, Affiliate Partners, and Medallia Customer Survey extracts.
+                    </p>
+                    <div class="proj-tech">
+                        <span>Snowflake</span><span>SQL</span><span>Data Modeling</span><span>ETL</span>
+                    </div>
+                    <div class="proj-impact">
+                        <i class="fas fa-lightbulb"></i> Enabled multiple business use cases with customized data marts
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="comic-divider reveal">
+        <span class="divider-text">TO BE CONTINUED?</span>
+    </div>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section id="contact" class="comic-section">
+        <span class="panel-number">PANEL 07</span>
+        <div class="web-corner bottom-right">
+            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width=".5" color="white">
+                <path d="M0,0 Q50,5 100,100" />
+                <path d="M0,0 Q5,50 100,100" />
+                <path d="M0,0 L100,100" />
+                <path d="M0,0 Q30,3 60,50" />
+                <path d="M0,0 Q3,30 50,60" />
+            </svg>
+        </div>
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-text"><i class="fas fa-envelope"></i> CONTACT</span>
+            </h2>
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <h3>LET'S CONNECT ACROSS DIMENSIONS!</h3>
+                    <p>
+                        I'm always interested in discussing data engineering challenges,
+                        business analytics opportunities, or potential collaborations.
+                    </p>
+                    <div class="contact-methods">
+                        <a href="mailto:prathamshelke223299@gmail.com" class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <span>prathamshelke223299@gmail.com</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/prathamesh-shelke-992488a9/" class="contact-method"
+                            target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn Profile</span>
+                        </a>
+                        <a href="https://github.com/P4pratham" class="contact-method" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub Profile</span>
+                        </a>
+                    </div>
+                    <div class="thought-bubble">
+                        "Every Spider-Person needs a team. Reach out -- let's build something that echoes across every
+                        dimension."
+                    </div>
+                    <div class="availability-badge">
+                        <i class="fas fa-circle"></i>
+                        <span>Open to new opportunities and collaborations</span>
+                    </div>
+                </div>
+                <div class="reveal">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">NAME</label>
+                            <input type="text" id="name" name="name" required placeholder="Your name...">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">EMAIL</label>
+                            <input type="email" id="email" name="email" required placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">MESSAGE</label>
+                            <textarea id="message" name="message" rows="5" required
+                                placeholder="Your message..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane"></i> SEND MESSAGE
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="the-end">THE END... ?</div>
+            <div class="footer-brand" style="margin-top:1.5rem;">
+                <i class="fas fa-spider"></i> PRATHAMESH SHELKE
+            </div>
+            <p>&copy; 2026 Prathamesh Shelke. Across Every Dimension, Data Tells a Story.</p>
+            <p class="story-note">
+                Previously on: <a href="../classic.html">The Classic Dimension</a> &bull;
+                Next Issue: Coming Soon...
+            </p>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/prathamesh-shelke-992488a9/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/P4pratham" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:prathamshelke223299@gmail.com">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
+
 </html>

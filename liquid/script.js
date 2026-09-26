@@ -175,7 +175,7 @@ function initTypewriter() {
     if (!element) return;
 
     const roles = [
-        'Business Analyst',
+        'Senior Data Engineer',
         'Azure Data Engineer',
         'Databricks Associate',
         'SQL & PySpark Expert',
