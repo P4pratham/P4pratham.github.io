@@ -278,26 +278,66 @@ function initSkillFilters() {
 }
 
 /* --------------------------------------------------------------------------
-   6. STAT COUNTERS ANIMATION
+   6. CONFIG-DRIVEN STAT COUNTERS ANIMATION
    -------------------------------------------------------------------------- */
-function initStatCounters() {
-    const statNumbers = document.querySelectorAll('.stat-number');
+async function initStatCounters() {
+    const heroStatsGrid = document.getElementById('heroStatsGrid');
+    if (!heroStatsGrid) return;
+
+    const defaultConfig = [
+        { id: "experience", icon: "fas fa-clock-rotate-left", target: 7, prefix: "", suffix: "+", label: "Years Experience" },
+        { id: "data_processed", icon: "fas fa-server", target: 100, prefix: "", suffix: " TB+", label: "Data Processed" },
+        { id: "etl_pipelines", icon: "fas fa-cubes", target: 50, prefix: "", suffix: "+", label: "ETL Pipelines" }
+    ];
+
+    let statsList = defaultConfig;
+
+    try {
+        const response = await fetch('config.json');
+        if (response.ok) {
+            const configData = await response.json();
+            if (configData && Array.isArray(configData.stats)) {
+                statsList = configData.stats;
+            }
+        }
+    } catch (err) {
+        console.warn('Using default stats config due to fetch fallback:', err);
+    }
+
+    // Render stats dynamically from config JSON
+    heroStatsGrid.innerHTML = statsList.map(stat => `
+        <div class="glass-stat-card">
+            <div class="stat-icon"><i class="${stat.icon}"></i></div>
+            <div class="stat-info">
+                <div class="stat-number" 
+                     data-target="${stat.target}" 
+                     data-prefix="${stat.prefix || ''}" 
+                     data-suffix="${stat.suffix || ''}">0</div>
+                <div class="stat-label">${stat.label}</div>
+            </div>
+        </div>
+    `).join('');
+
     let animated = false;
+    const statNumbers = heroStatsGrid.querySelectorAll('.stat-number');
 
     function startCounting() {
         statNumbers.forEach(stat => {
             const target = parseInt(stat.getAttribute('data-target'));
+            const prefix = stat.getAttribute('data-prefix') || '';
+            const suffix = stat.getAttribute('data-suffix') || '';
+
             if (isNaN(target)) return;
 
             let count = 0;
-            const increment = Math.ceil(target / 40);
+            const increment = Math.ceil(target / 45);
             const timer = setInterval(() => {
                 count += increment;
                 if (count >= target) {
-                    stat.textContent = target + (stat.getAttribute('data-target') === '100' ? ' TB+' : '+');
+                    stat.textContent = `${prefix}${target}${suffix}`;
                     clearInterval(timer);
                 } else {
-                    stat.textContent = count + '+';
+                    stat.textContent = `${prefix}${count}${suffix}`;
                 }
             }, 35);
         });
@@ -310,10 +350,9 @@ function initStatCounters() {
                 animated = true;
             }
         });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.3 });
 
-    const heroStats = document.querySelector('.hero-stats-grid');
-    if (heroStats) observer.observe(heroStats);
+    observer.observe(heroStatsGrid);
 }
 
 /* --------------------------------------------------------------------------

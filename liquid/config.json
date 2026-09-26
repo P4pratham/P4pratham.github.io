@@ -1,0 +1,28 @@
+{
+  "stats": [
+    {
+      "id": "experience",
+      "icon": "fas fa-clock-rotate-left",
+      "target": 7,
+      "prefix": "",
+      "suffix": "+",
+      "label": "Years Experience"
+    },
+    {
+      "id": "data_processed",
+      "icon": "fas fa-server",
+      "target": 100,
+      "prefix": "",
+      "suffix": " TB+",
+      "label": "Data Processed"
+    },
+    {
+      "id": "etl_pipelines",
+      "icon": "fas fa-cubes",
+      "target": 50,
+      "prefix": "",
+      "suffix": "+",
+      "label": "ETL Pipelines"
+    }
+  ]
+}
