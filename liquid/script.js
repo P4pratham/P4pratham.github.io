@@ -567,13 +567,119 @@ function initBlogs() {
             ${blog.coverImage ? `
                 <img src="${escapeHtml(blog.coverImage)}" alt="${escapeHtml(blog.title)}" class="modal-article-cover" />
             ` : ''}
-            <div class="modal-article-body">
-                ${blog.content}
+            <div class="modal-article-body" id="modalArticleBody">
+                <div style="padding: 2rem; text-align: center; color: var(--text-muted);">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 1.8rem; color: var(--accent-cyan); margin-bottom: 0.8rem;"></i>
+                    <p>Loading article content...</p>
+                </div>
             </div>
         `;
 
         modalOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
+
+        const articleBodyEl = document.getElementById('modalArticleBody');
+
+        if (blog.contentFile) {
+            fetch(blog.contentFile)
+                .then(res => {
+                    if (!res.ok) throw new Error('Could not load text file: ' + blog.contentFile);
+                    return res.text();
+                })
+                .then(rawText => {
+                    if (articleBodyEl) {
+                        articleBodyEl.innerHTML = parseBlogContent(rawText);
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    if (articleBodyEl) {
+                        articleBodyEl.innerHTML = `
+                            <p style="color: #ef4444; padding: 1rem;">
+                                <i class="fas fa-exclamation-triangle"></i> Failed to load article file (${escapeHtml(blog.contentFile)}).
+                            </p>
+                        `;
+                    }
+                });
+        } else if (blog.content) {
+            if (articleBodyEl) {
+                articleBodyEl.innerHTML = parseBlogContent(blog.content);
+            }
+        }
+    }
+
+    function parseBlogContent(text) {
+        if (!text) return '';
+        const trimmed = text.trim();
+
+        // If it already contains HTML tags like <p>, <h3>, <div... return directly
+        if (/^\s*<(p|div|h[1-6]|article|section|ul|ol|pre|table)/i.test(trimmed)) {
+            return trimmed;
+        }
+
+        let html = trimmed;
+
+        // Code blocks: ```python ... ```
+        html = html.replace(/```([a-z]*)\n([\s\S]*?)```/gi, (match, lang, code) => {
+            const safeCode = escapeHtml(code.trim());
+            return `<pre><code class="language-${lang || 'plaintext'}">${safeCode}</code></pre>`;
+        });
+
+        // Headings: ### Header, ## Header, # Header
+        html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
+        html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
+        html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+
+        // Inline code `code`
+        html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+
+        // Bullet lists (- item or * item)
+        const lines = html.split('\n');
+        let inList = false;
+        let resultLines = [];
+
+        lines.forEach(line => {
+            const listMatch = line.match(/^[\-\*]\s+(.*)$/);
+            if (listMatch) {
+                if (!inList) {
+                    inList = true;
+                    resultLines.push('<ul>');
+                }
+                resultLines.push(`  <li>${listMatch[1]}</li>`);
+            } else {
+                if (inList) {
+                    inList = false;
+                    resultLines.push('</ul>');
+                }
+                resultLines.push(line);
+            }
+        });
+        if (inList) {
+            resultLines.push('</ul>');
+        }
+
+        html = resultLines.join('\n');
+
+        // Convert standalone http/https links to <a> tags (if not inside an attribute)
+        html = html.replace(/(https?:\/\/[^\s<]+)/g, (match) => {
+            return `<a href="${match}" target="_blank" style="color: var(--accent-cyan); text-decoration: underline;">${match}</a>`;
+        });
+
+        // Split into paragraphs by double line breaks
+        const blocks = html.split(/\n\s*\n/);
+        const processedBlocks = blocks.map((block, idx) => {
+            const blockTrimmed = block.trim();
+            if (!blockTrimmed) return '';
+            if (/^\s*<(h[1-6]|ul|ol|pre|blockquote|div|p)/i.test(blockTrimmed)) {
+                return blockTrimmed;
+            }
+            if (idx === 0) {
+                return `<p class="blog-lead">${blockTrimmed}</p>`;
+            }
+            return `<p>${blockTrimmed}</p>`;
+        });
+
+        return processedBlocks.filter(Boolean).join('\n');
     }
 
     function closeBlogModal() {

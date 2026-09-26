@@ -1,0 +1,29 @@
+If you are writing Lakeflow Pipelines in Databricks, it’s time to update your imports.
+
+Databricks is phasing out the legacy @dlt decorators and dlt module in favor of Apache Spark Declarative Pipelines (SDP), using pyspark.pipelines (conventionally imported as dp).
+
+### 🔄 The Evolution from @dlt to dp
+
+- The Old Pattern: Using import dlt tied pipeline logic tightly to proprietary Delta Live Tables syntax and runtime constructs.
+- The New Standard: Using import pyspark.pipelines as dp standardizes declarative data engineering directly within the broader Apache Spark and Lakeflow ecosystem.
+
+### ⚡ What Changes in Your Code?
+
+The shift is straightforward and keeps the declarative style you're used to:
+
+- import dlt ➔ import pyspark.pipelines as dp
+- @dlt.table ➔ @dp.table
+- @dlt.view ➔ @dp.view
+- dlt.read() / dlt.read_stream() ➔ dp.read() / dp.read_stream()
+
+Expectations syntax now standardizes under the new dp module decorators (like @dp.expect, @dp.expect_or_drop, and @dp.expect_or_fail).
+
+### 💡 Why This Matters
+
+- Closer Alignment with Open Standards: Standardizing declarative pipelines under pyspark bridges the gap between proprietary platform code and open-source Spark paradigms.
+- Core to Lakeflow: Powers next-gen Lakeflow Pipelines with clean lifecycle management, automated orchestration, and built-in Unity Catalog governance.
+- Seamless Transition: It’s a clean 1:1 conceptual mapping, making modernization of existing DLT notebooks fast and painless.
+
+Are you still running legacy dlt pipelines, or have you started refactoring over to pyspark.pipelines?
+
+📚 Reference doc: https://lnkd.in/gxNMMs8v
